@@ -268,6 +268,12 @@
       delegate_to: localhost
       when: all_method_names is not defined
 
+    - name: Write cmd_output to file (overwrite)
+      ansible.builtin.copy:
+        dest: "/porta_var/tmp/API_Check_output.log"
+        content: "{{ (all_method_names | join(',')) | default('not_found', true) }}"
+      run_once: true
+
     - name: Set AWX artifact with cmd_output
       ansible.builtin.set_stats:
         data:
@@ -278,9 +284,3 @@
         per_host: no
       run_once: true
       delegate_to: localhost
-
-      - name: Write cmd_output to file (overwrite)
-        ansible.builtin.copy:
-          dest: "/porta_var/tmp/API_Check_output.log"
-          content: "{{ (all_method_names | join(',')) | default('not_found', true) }}"
-        run_once: true
