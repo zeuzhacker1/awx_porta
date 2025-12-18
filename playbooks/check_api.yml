@@ -271,7 +271,7 @@
     - name: Write cmd_output to file (overwrite)
       ansible.builtin.copy:
         dest: "/porta_var/tmp/API_Check_output.log"
-        content: "{{ (all_method_names | join(',')) | default('not_found', true) }}"
+        content: "{{ (all_method_names | join('\n')) | default('not_found', true) }}"
       run_once: true
 
     - name: Set AWX artifact with cmd_output
@@ -279,7 +279,7 @@
         data:
           "{{ cmd_prefix }}":
             {
-              "cmd_output": "{{ (all_method_names | join(',')) | default('not_found', true) }}"
+              "cmd_output": "{{ (all_method_names | join('\n')) | default('not_found', true) }}"
             }
         per_host: no
       run_once: true
