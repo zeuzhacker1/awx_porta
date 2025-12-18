@@ -1,0 +1,286 @@
+---
+# This playbook is designed to run pre-update API check on porta-billing-web servers using check_api.py, which is automatically copied from octopus by periodic job "SUP2-4880 fetch check_api.py".
+#
+# Should be run from same project as check_api.py (to simpfily process of delivering updated check_api.py, local repo inside k8s pod is used instead of git).
+#
+# Play 1: Discover web server IPs and target release on the configurator
+- name: Discover web server IPs and target release
+  hosts: IUN_HOST
+  gather_facts: no
+  vars:
+    # Define initial values
+    mr_to: ""
+    mysql_base_cmd: "mysql -u root -S /tmp/configurator-mysqld.sock porta-configurator -N -B"
+    sql_query: "SELECT service_ip FROM Instances WHERE name LIKE 'porta-billing-web%' AND i_configuration IN (SELECT i_configuration FROM Active_Configurations WHERE status='current');"
+    _script_dir_path_val: /porta_var/tmp/check_api_scripts # Script dir on REMOTE web servers
+    _prefix_value_val: "lvl_1"
+    _ssh_identity_file_val: "/home/porta-one/.ssh/id_dsa.portaone" # Location ON IUN_HOST
+    _remote_ssh_user_val: "porta-one" # User ON REMOTE web servers
+    _local_script_path_val: "/runner/project/check_api.py" # Location on Ansible controller/runner
+    _iun_host_temp_script_path_val: "/porta_var/tmp/check_api.py" # Temp location on IUN_HOST
+    _remote_temp_script_path_val: "/porta_var/tmp/check_api.py" # Temp location on web servers
+
+  tasks:
+    # --- Set Facts for variables needed in later plays ---
+    - name: Set facts for later plays
+      ansible.builtin.set_fact:
+        cmd_prefix_fact: "{{ _prefix_value_val }}"
+        remote_script_dir_fact: "{{ _script_dir_path_val }}"
+        ssh_identity_file_fact: "{{ _ssh_identity_file_val }}"
+        remote_ssh_user_fact: "{{ _remote_ssh_user_val }}"
+        local_script_path_fact: "{{ _local_script_path_val }}"
+        iun_host_temp_script_path_fact: "{{ _iun_host_temp_script_path_val }}"
+        remote_temp_script_path_fact: "{{ _remote_temp_script_path_val }}"
+      run_once: true
+
+    # --- Calculations and Dynamic Facts ---
+    - name: Calculate and set target_release fact
+      ansible.builtin.set_fact:
+        target_release_fact: "{{ (mr_to.split('-')[0] | regex_replace('^[^0-9]+', '')) + (mr_to.split('-')[1]) }}"
+      when: mr_to is defined and mr_to | length > 0 and '-' in mr_to
+      run_once: true
+
+    - name: Fail if target_release could not be calculated
+      ansible.builtin.fail:
+        msg: "Variable 'mr_to' is not defined or in the wrong format (e.g., MR100-9). Cannot calculate target_release_fact."
+      when: target_release_fact is not defined
+      run_once: true
+
+    - name: Display calculated target release
+      ansible.builtin.debug:
+        var: target_release_fact
+      run_once: true
+
+    - name: Get porta-billing-web IPs using mysql
+      ansible.builtin.shell:
+        cmd: "{{ mysql_base_cmd }} <<< \"{{ sql_query }}\""
+      register: mysql_result
+      changed_when: false
+      failed_when: mysql_result.rc != 0
+      run_once: true
+
+    - name: Parse mysql output and set IPs fact
+      ansible.builtin.set_fact:
+        porta_ips_fact: "{{ mysql_result.stdout_lines | map('trim') | reject('==', '') | select('match', '^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$') | list }}"
+      run_once: true
+
+    - name: Fail if no IPs were found
+      ansible.builtin.fail:
+        msg: "Could not find any porta-billing-web IPs from mysql on {{ inventory_hostname }}."
+      when: porta_ips_fact | length == 0
+      run_once: true
+
+# Play 2: Execute check_api.py on Discovered Web Servers directly from IUN_HOST
+- name: Execute check_api.py on Discovered Porta Web Servers via IUN_HOST
+  hosts: IUN_HOST
+  gather_facts: no
+  serial: 0
+  strategy: free
+
+  tasks:
+    # --- Ensure temp script directory exists (via ssh) ---
+    - name: Ensure temp script directory exists on remote web servers
+      ansible.builtin.shell:
+        cmd: "/home/porta-one/scripts/rsh_porta.sh {{ item }} 'sudo mkdir -p {{ remote_script_dir_fact }} && sudo chmod 755 {{ remote_script_dir_fact }}'"
+      register: mkdir_result
+      failed_when: mkdir_result.rc != 0
+      changed_when: "'exists' not in mkdir_result.stdout"
+      loop: "{{ porta_ips_fact }}"
+      loop_control:
+        label: "{{ item }}"
+
+    # --- Copy script logic ---
+    - name: Check if script exists locally on the Ansible Runner
+      ansible.builtin.stat:
+        path: "{{ local_script_path_fact }}"
+      register: local_script_stat
+      delegate_to: localhost
+
+    - name: Copy script from Runner to IUN_HOST temporary location
+      ansible.builtin.copy:
+        src: "{{ local_script_path_fact }}"
+        dest: "{{ iun_host_temp_script_path_fact }}"
+        mode: '0755'
+      when: local_script_stat.stat.exists
+
+    - name: Fail if local script does not exist
+      ansible.builtin.fail:
+        msg: "Local script {{ local_script_path_fact }} not found on the Ansible runner."
+      when: not local_script_stat.stat.exists
+      delegate_to: localhost
+
+    - name: Copy script from IUN_HOST to web servers (via sudo scp/ssh)
+      vars:
+        remote_script_full_path: "{{ remote_script_dir_fact }}/check_api.py"
+      ansible.builtin.shell:
+        cmd: >
+          /home/porta-configurator/bin/rcp-wrapper.sh {{ iun_host_temp_script_path_fact }} {{ remote_ssh_user_fact }}@{{ item }}:{{ remote_temp_script_path_fact }} &&
+          /home/porta-one/scripts/rsh_porta.sh {{ item }} 'sudo mv {{ remote_temp_script_path_fact }} {{ remote_script_full_path }} && sudo chmod 755 {{ remote_script_full_path }}'
+      register: scp_result
+      failed_when: scp_result.rc != 0
+      changed_when: true
+      loop: "{{ porta_ips_fact }}"
+      loop_control:
+        label: "{{ item }}"
+
+   # --- Update script logic ---
+    - name: Update check_api.py with target_release and portaadmin_ip
+      vars:
+        remote_script_full_path: "{{ remote_script_dir_fact }}/check_api.py"
+      ansible.builtin.shell:
+        cmd: "/home/porta-one/scripts/rsh_porta.sh {{ item }} \"sudo sed -i -e 's/{{ '{{' }} *target_release *{{ '}}' }}/{{ target_release_fact }}/g' -e 's/{{ '{{' }} *portaadmin_ip *{{ '}}' }}/{{ item }}/g' {{ remote_script_full_path }}\""
+      register: sed_result_combined
+      failed_when: sed_result_combined.rc != 0
+      changed_when: true
+      loop: "{{ porta_ips_fact }}"
+      loop_control:
+        label: "{{ item }}"
+
+    # --- Run script logic ---
+    - name: Check log file exists and run script on web servers
+      vars:
+        log_path: "/porta_var/{{ item }}/log"
+        log_file: "{{ log_path }}/httpd-access-web.log"
+        remote_script_full_path: "{{ remote_script_dir_fact }}/check_api.py"
+      ansible.builtin.shell:
+        cmd: |
+          /home/porta-one/scripts/rsh_porta.sh {{ item }} "if [ -f {{ log_file }} ]; then sudo LOGPATH={{ log_path }} {{ remote_script_full_path }}; else echo 'Log file {{ log_file }} missing. Script not started.'; exit 1; fi"
+      register: script_run_result
+      timeout: 240
+      failed_when: script_run_result.rc != 0
+      changed_when: "'Running script.' in script_run_result.stdout"
+      loop: "{{ porta_ips_fact }}"
+      loop_control:
+        label: "Execute on {{ item }}"
+
+    - name: Display Script Run Results
+      ansible.builtin.debug:
+        msg: "{{ item.item }}: RC={{ item.rc }} | Failed={{ item.failed }} | Changed={{ item.changed }} | Skipped={{ item.skipped | default('false') }} | Stdout={{ item.stdout }} | Stderr={{ item.stderr }}"
+      loop: "{{ script_run_result.results }}"
+
+    - name: Clean up script on web servers
+      vars:
+        remote_script_full_path: "{{ remote_script_dir_fact }}/check_api.py"
+      ansible.builtin.shell:
+        cmd: "/home/porta-one/scripts/rsh_porta.sh {{ item }} 'sudo rm -f {{ remote_script_full_path }}'"
+      register: cleanup_result
+      failed_when: cleanup_result.rc != 0
+      changed_when: true
+      loop: "{{ porta_ips_fact }}"
+      loop_control:
+        label: "{{ item }}"
+
+# Play 3: Aggregate API Check Results - Simplified
+- name: Aggregate API Check Results
+  hosts: IUN_HOST
+  gather_facts: no
+  vars:
+    iun_host_name: "{{ ansible_play_hosts_all[0] }}"
+    script_results_list: "{{ hostvars[iun_host_name]['script_run_result']['results'] | default([]) }}"
+
+  tasks:
+    - name: Debug raw script output
+      ansible.builtin.debug:
+        msg: "Output from {{ item.item }}:\n{{ item.stdout | default('') }}"
+      loop: "{{ script_results_list }}"
+      loop_control:
+        label: "{{ item.item }}"
+      run_once: true
+      delegate_to: localhost
+      when: script_results_list | length > 0
+
+    - name: Extract JSON with grep
+      ansible.builtin.shell:
+        cmd: printf '%s' '{{ item.stdout | default("") }}' | grep -o '{.*}' || true
+      register: json_extraction
+      loop: "{{ script_results_list }}"
+      changed_when: false
+      run_once: true
+      delegate_to: localhost
+      loop_control:
+        label: "{{ item.item }}"
+
+    - name: Collect valid JSON strings
+      ansible.builtin.set_fact:
+        json_strings_found: "{{ json_extraction.results | selectattr('stdout', 'defined') | map(attribute='stdout') | select('match', '.{3,}') | list }}"
+      run_once: true
+      delegate_to: localhost
+
+    - name: Extract methods using Python
+      ansible.builtin.shell:
+        cmd: |
+          python3 <<'EOF'
+          import json, ast, sys
+
+          json_str = '''{{ json_strings_found[0] }}'''
+
+          print(f"DEBUG: Input string length: {len(json_str)}", file=sys.stderr)
+
+          all_methods = set()
+
+          if json_str:
+              try:
+                  # First try to parse as JSON
+                  try:
+                      data = json.loads(json_str)
+                      print(f"DEBUG: Parsed as JSON successfully", file=sys.stderr)
+                  except json.JSONDecodeError as e:
+                      print(f"DEBUG: JSON parsing failed: {e}", file=sys.stderr)
+                      # If that fails, try parsing as a Python literal
+                      try:
+                          data = ast.literal_eval(json_str)
+                          print(f"DEBUG: Parsed as Python literal successfully", file=sys.stderr)
+                      except Exception as e:
+                          print(f"DEBUG: Python literal parsing failed: {e}", file=sys.stderr)
+                          raise
+
+                  # Extract method names
+                  if isinstance(data, dict):
+                      print(f"DEBUG: Data is a dict with keys: {list(data.keys())}", file=sys.stderr)
+                      if '_results' in data and isinstance(data['_results'], dict):
+                          print(f"DEBUG: Found _results with keys: {list(data['_results'].keys())}", file=sys.stderr)
+                          all_methods.update(data['_results'].keys())
+              except Exception as e:
+                  print(f"DEBUG: Error processing input: {e}", file=sys.stderr)
+
+          result = sorted(list(all_methods))
+          print(f"DEBUG: Final methods found: {result}", file=sys.stderr)
+          for method in result:
+              print(method)
+          EOF
+      register: python_method_extraction
+      changed_when: false
+      run_once: true
+      delegate_to: localhost
+      when: json_strings_found is defined and json_strings_found | length > 0
+
+    - name: Set method names from Python extraction
+      ansible.builtin.set_fact:
+        all_method_names: "{{ python_method_extraction.stdout_lines }}"
+      run_once: true
+      delegate_to: localhost
+      when: python_method_extraction is defined and python_method_extraction.stdout_lines | length > 0
+
+    - name: Initialize empty method names if none found
+      ansible.builtin.set_fact:
+        all_method_names: []
+      run_once: true
+      delegate_to: localhost
+      when: all_method_names is not defined
+
+    - name: Set AWX artifact with cmd_output
+      ansible.builtin.set_stats:
+        data:
+          "{{ cmd_prefix }}":
+            {
+              "cmd_output": "{{ (all_method_names | join(',')) | default('not_found', true) }}"
+            }
+        per_host: no
+      run_once: true
+      delegate_to: localhost
+
+      - name: Write cmd_output to file (overwrite)
+        ansible.builtin.copy:
+          dest: "/porta_var/tmp/API_Check_output.log"
+          content: "{{ (all_method_names | join(',')) | default('not_found', true) }}"
+        run_once: true
