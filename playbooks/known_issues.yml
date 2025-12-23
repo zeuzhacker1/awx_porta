@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  vars:
+    # Default values, can be overridden by extra_vars
+    mr: ""
+
+  tasks:
+    - name: Fail if MR is not defined
+      fail:
+        msg: "The 'mr' variable is required. Please provide it via extra_vars."
+      when: mr == ""
+
+    - name: Fail if Credentials are not defined
+      fail:
+        msg: "Credentials are required. Please ensure 'login' and 'password' are provided."
+      when: login is not defined or password is not defined
+
+    - name: Run known_issues.py script
+      command: "/usr/bin/python3 /home/zeuzhacker1/ansible/local_scripts/known_issues.py --mr {{ mr }} --user '{{ login }}' --password '{{ password }}'"
+      register: script_output
+      changed_when: false
+      failed_when: script_output.rc != 0
+
+    - name: Display script output
+      debug:
+        var: script_output.stdout_lines
