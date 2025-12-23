@@ -34,7 +34,7 @@ def format_val(v):
     if v is None:
         return 'N/A'
     if isinstance(v, list):
-        res = ', '.join([str(x.get('name', x)) for x in v if x])
+        res = ', '.join([str(x.get('name', x)) if isinstance(x, dict) else str(x) for x in v if x])
         return res if res else 'N/A'
     elif isinstance(v, dict):
         res = v.get('name', '')
@@ -65,7 +65,7 @@ def get_issue_details(issue_id, auth, token=None):
 
                 if field.get('name') == 'Committed To':
                     details['committed_to'] = format_val(val)
-                elif field.get('name') == 'State':
+                elif field.get('name') in ['State', 'Status']:
                     details['task_status'] = format_val(val)
         else:
             sys.stderr.write(f"Warning: Failed to fetch details for {issue_id}. Status code: {response.status_code}\n")
@@ -99,18 +99,24 @@ try:
             try:
                 json_data = json.loads(cleaned_body)
 
-                # Extract major issues with id and subject
-                major_issues = [
-                    {"id": item["id"], "subject": item["subject"].lstrip()}
-                    for item in json_data
-                    if item.get("severity") == "Major"
-                ]
-
+                # Extract Major issues safely.
+                processed_issues = []
+                for item in json_data:
+                    if not isinstance(item, dict): continue
+                    if item.get("severity") == "Major":
+                        # We use 'N/A' if ID is missing or empty
+                        issue_id = item.get("id")
+                        subject = item.get("subject")
+                        processed_issues.append({
+                            "id": str(issue_id) if issue_id else "N/A",
+                            "subject": str(subject).lstrip() if subject else "N/A"
+                        })
+                
                 # Print the table header
                 print("||#||Known issue||Committed To||Task Status||Status||Comment||Time spent, min||")
 
                 # Print the extracted elements
-                for i, issue in enumerate(major_issues, start=1):
+                for i, issue in enumerate(processed_issues, start=1):
                     try:
                         issue_id = issue.get('id', 'N/A')
                         issue_subject = issue.get('subject', 'N/A')
@@ -121,9 +127,9 @@ try:
                         # f-strings used for cleaner formatting
                         print(f"|{i}|[{issue_subject}|{issue_link}]|{details['committed_to']}|{details['task_status']}|{{status:title=Pending|colour=grey}}| | |")
                     except Exception as e:
-                        sys.stderr.write(f"Error: Failed to process issue row {i}: {str(e)}\n")
-                        # Fallback row print if something goes wrong in the processing
-                        print(f"|{i}|[Issue processing failed|#]|N/A|N/A|{{status:title=Error|colour=red}}| | |")
+                        sys.stderr.write(f"Error processing row {i} (ID: {issue.get('id')}): {str(e)}\n")
+                        # Print a fallback row to keep the table structure intact
+                        print(f"|{i}|[Error processing issue {issue.get('id')}|#]|N/A|N/A|{{status:title=Error|colour=red}}| | |")
             
             except json.JSONDecodeError as e:
                 print(f"Error parsing JSON data: {e}")
