@@ -22,6 +22,28 @@ if not login or not password:
     print("Error: Username and Password are required. Provide via arguments.")
     sys.exit(1)
 
+def get_committed_into(issue_id, auth):
+    try:
+        # Use YouTrack REST API to get custom fields
+        url = f"https://youtrack.portaone.com/api/issues/{issue_id}"
+        params = {'fields': 'customFields(name,value(name))'}
+        response = requests.get(url, auth=auth, params=params)
+        
+        if response.status_code == 200:
+            data = response.json()
+            for field in data.get('customFields', []):
+                if field.get('name') == 'Committed To':
+                    val = field.get('value')
+                    if isinstance(val, list):
+                        return ', '.join([v.get('name', '') for v in val if v])
+                    elif isinstance(val, dict):
+                        return val.get('name', '')
+                    elif val:
+                        return str(val)
+        return ''
+    except Exception as e:
+        return ''
+
 # Construct the URL with MR number using f-string
 url = f"https://portaone.com/resources/protected/release_notes/json/MR{args.mr}.js"
 
@@ -54,13 +76,14 @@ try:
                 ]
 
                 # Print the table header
-                print("||#||Known issue||Status||Comment||Time spent, min||")
+                print("||#||Known issue||Committed To||Status||Comment||Time spent, min||")
 
                 # Print the extracted elements
                 for i, issue in enumerate(major_issues, start=1):
                     issue_link = f"https://youtrack.portaone.com/issue/{issue['id']}"
+                    committed_to = get_committed_into(issue['id'], (login, password))
                     # f-strings used for cleaner formatting
-                    print(f"|{i}|[{issue['subject']}|{issue_link}]|{{status:title=Pending|colour=grey}}| | |")
+                    print(f"|{i}|[{issue['subject']}|{issue_link}]|{committed_to}|{{status:title=Pending|colour=grey}}| | |")
             
             except json.JSONDecodeError as e:
                 print(f"Error parsing JSON data: {e}")
