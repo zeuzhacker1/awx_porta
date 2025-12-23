@@ -18,7 +18,7 @@
       when: login is not defined or password is not defined
 
     - name: Run known_issues.py script
-      command: "/usr/bin/python3 /runner/project/local_scripts/known_issues.py --mr {{ mr }} --user '{{ login }}' --password '{{ password }}'"
+      command: "/usr/bin/python3 /runner/project/local_scripts/known_issues.py --mr {{ mr }} --user '{{ login }}' --password '{{ password }}' --token '{{ yt_api_token }}'"
       register: script_output
       changed_when: false
       failed_when: script_output.rc != 0

@@ -11,6 +11,7 @@ parser = argparse.ArgumentParser(description="Script for simple parsing of known
 parser.add_argument("-m", "--mr", help="MR number", required=True)
 parser.add_argument("-u", "--user", help="LDAP Username", required=False)
 parser.add_argument("-p", "--password", help="LDAP Password", required=False)
+parser.add_argument("-t", "--token", help="YouTrack Token", required=False)
 args = parser.parse_args()
 
 import os
@@ -22,12 +23,19 @@ if not login or not password:
     print("Error: Username and Password are required. Provide via arguments.")
     sys.exit(1)
 
-def get_committed_into(issue_id, auth):
+def get_committed_into(issue_id, auth, token=None):
     try:
         # Use YouTrack REST API to get custom fields
         url = f"https://youtrack.portaone.com/api/issues/{issue_id}"
         params = {'fields': 'customFields(name,value(name))'}
-        response = requests.get(url, auth=auth, params=params)
+        
+        request_kwargs = {'params': params}
+        if token:
+            request_kwargs['headers'] = {'Authorization': f'Bearer {token}'}
+        else:
+            request_kwargs['auth'] = auth
+            
+        response = requests.get(url, **request_kwargs)
         
         if response.status_code == 200:
             data = response.json()
@@ -81,7 +89,7 @@ try:
                 # Print the extracted elements
                 for i, issue in enumerate(major_issues, start=1):
                     issue_link = f"https://youtrack.portaone.com/issue/{issue['id']}"
-                    committed_to = get_committed_into(issue['id'], (login, password))
+                    committed_to = get_committed_into(issue['id'], (login, password), args.token)
                     # f-strings used for cleaner formatting
                     print(f"|{i}|[{issue['subject']}|{issue_link}]|{committed_to}|{{status:title=Pending|colour=grey}}| | |")
             
