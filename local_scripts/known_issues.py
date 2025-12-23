@@ -48,6 +48,7 @@ def get_committed_into(issue_id, auth, token=None):
             data = response.json()
             for field in data.get('customFields', []):
                 if field.get('name') == 'Committed To':
+                    val = field.get('value')
                     if isinstance(val, list):
                         res = ', '.join([v.get('name', '') for v in val if v])
                         return res if res else 'N/A'
@@ -56,9 +57,11 @@ def get_committed_into(issue_id, auth, token=None):
                         return res if res else 'N/A'
                     elif val:
                         return str(val)
-        return ''
+                    else:
+                        return 'N/A'
+        return 'N/A'
     except Exception as e:
-        return ''
+        return 'N/A'
 
 # Construct the URL with MR number using f-string
 url = f"https://portaone.com/resources/protected/release_notes/json/MR{args.mr}.js"
