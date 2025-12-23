@@ -15,6 +15,13 @@ parser.add_argument("-t", "--token", help="YouTrack Token", required=False)
 parser.add_argument("-e", "--env", help="Environment (prod/staging)", required=False, default="prod")
 args = parser.parse_args()
 
+# DEBUG: Print configuration
+sys.stderr.write(f"DEBUG: Starting script with MR={args.mr}, Env={args.env}, User={args.user}\n")
+if args.token:
+    sys.stderr.write("DEBUG: Token provided.\n")
+else:
+    sys.stderr.write("DEBUG: No token provided, will use basic auth for YT if needed.\n")
+
 import os
 
 login = args.user
@@ -46,9 +53,11 @@ def get_committed_into(issue_id, auth, token=None):
         
         if response.status_code == 200:
             data = response.json()
+            sys.stderr.write(f"DEBUG: YT Response for {issue_id}: Success.\n")
             for field in data.get('customFields', []):
                 if field.get('name') == 'Committed To':
                     val = field.get('value')
+                    sys.stderr.write(f"DEBUG: Found 'Committed To' for {issue_id}: {val}\n")
                     if isinstance(val, list):
                         return ', '.join([v.get('name', '') for v in val if v])
                     elif isinstance(val, dict):
@@ -64,6 +73,7 @@ url = f"https://portaone.com/resources/protected/release_notes/json/MR{args.mr}.
 
 try:
     # Send GET request with basic authentication
+    sys.stderr.write(f"DEBUG: Fetching Release Notes from {url}\n")
     response = requests.get(url, auth=(login, password))
 
     # Check if the request was successful (status code 200)
@@ -89,6 +99,7 @@ try:
                     for item in json_data
                     if item.get("severity") == "Major"
                 ]
+                sys.stderr.write(f"DEBUG: Found {len(major_issues)} major issues.\n")
 
                 # Print the table header
                 print("||#||Known issue||Committed To||Status||Comment||Time spent, min||")
