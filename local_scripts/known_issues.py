@@ -30,6 +30,17 @@ if args.env == "staging":
 else:
     youtrack_base_url = "https://youtrack.portaone.com"
 
+def format_val(v):
+    if isinstance(v, list):
+        res = ', '.join([x.get('name', '') for x in v if x])
+        return res if res else 'N/A'
+    elif isinstance(v, dict):
+        res = v.get('name', '')
+        return res if res else 'N/A'
+    elif v:
+        return str(v)
+    return 'N/A'
+
 def get_issue_details(issue_id, auth, token=None):
     details = {'committed_to': 'N/A', 'task_status': 'N/A'}
     try:
@@ -43,23 +54,12 @@ def get_issue_details(issue_id, auth, token=None):
         else:
             request_kwargs['auth'] = auth
             
-        response = requests.get(url, **request_kwargs)
+        response = requests.get(url, **request_kwargs, timeout=10)
         
         if response.status_code == 200:
             data = response.json()
             for field in data.get('customFields', []):
                 val = field.get('value')
-                
-                def format_val(v):
-                    if isinstance(v, list):
-                        res = ', '.join([x.get('name', '') for x in v if x])
-                        return res if res else 'N/A'
-                    elif isinstance(v, dict):
-                        res = v.get('name', '')
-                        return res if res else 'N/A'
-                    elif v:
-                        return str(v)
-                    return 'N/A'
 
                 if field.get('name') == 'Committed To':
                     details['committed_to'] = format_val(val)
