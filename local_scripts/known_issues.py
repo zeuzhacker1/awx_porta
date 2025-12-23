@@ -102,14 +102,15 @@ try:
             try:
                 json_data = json.loads(cleaned_body)
 
-                # Extract Major issues safely (case-insensitive)
+                # Extract issues safely (permissive match for 'major')
                 processed_issues = []
+                sys.stderr.write(f"DEBUG: Starting issue extraction from {len(json_data)} items.\n")
                 for item in json_data:
                     if not isinstance(item, dict):
                         continue
                     
                     raw_severity = str(item.get("severity", "")).strip().lower()
-                    if raw_severity == "major":
+                    if "major" in raw_severity:
                         issue_id = item.get("id")
                         subject = item.get("subject")
                         processed_issues.append({
@@ -117,9 +118,10 @@ try:
                             "subject": str(subject).lstrip() if subject else "N/A"
                         })
                     else:
-                        # Log non-major issues to stderr for debugging
-                        pass
+                        sys.stderr.write(f"DEBUG: Skipping non-major issue: ID={item.get('id')}, Severity='{item.get('severity')}'\n")
                 
+                sys.stderr.write(f"DEBUG: Found {len(processed_issues)} total issues to process.\n")
+
                 # Print the table header
                 print("||#||Known issue||Committed To||Task Status||Status||Comment||Time spent, min||")
 
@@ -128,6 +130,8 @@ try:
                     try:
                         issue_id = issue.get('id', 'N/A')
                         issue_subject = issue.get('subject', 'N/A')
+                        sys.stderr.write(f"DEBUG: Processing row {i}: ID={issue_id}\n")
+                        
                         issue_link = f"{youtrack_base_url}/issue/{issue_id}" if issue_id != 'N/A' else '#'
                         
                         details = get_issue_details(issue_id, (login, password), args.token) if issue_id != 'N/A' else {'committed_to': 'N/A', 'task_status': 'N/A'}
@@ -135,7 +139,7 @@ try:
                         # f-strings used for cleaner formatting
                         print(f"|{i}|[{issue_subject}|{issue_link}]|{details['committed_to']}|{details['task_status']}|{{status:title=Pending|colour=grey}}| | |")
                     except Exception as e:
-                        sys.stderr.write(f"Error processing row {i} (ID: {issue.get('id')}): {str(e)}\n")
+                        sys.stderr.write(f"CRITICAL Error processing row {i} (ID: {issue.get('id')}): {str(e)}\n")
                         # Print a fallback row to keep the table structure intact
                         print(f"|{i}|[Error processing issue {issue.get('id')}|#]|N/A|N/A|{{status:title=Error|colour=red}}| | |")
             
