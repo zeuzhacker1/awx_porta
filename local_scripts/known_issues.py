@@ -48,11 +48,12 @@ def get_committed_into(issue_id, auth, token=None):
             data = response.json()
             for field in data.get('customFields', []):
                 if field.get('name') == 'Committed To':
-                    val = field.get('value')
                     if isinstance(val, list):
-                        return ', '.join([v.get('name', '') for v in val if v])
+                        res = ', '.join([v.get('name', '') for v in val if v])
+                        return res if res else 'N/A'
                     elif isinstance(val, dict):
-                        return val.get('name', '')
+                        res = val.get('name', '')
+                        return res if res else 'N/A'
                     elif val:
                         return str(val)
         return ''
