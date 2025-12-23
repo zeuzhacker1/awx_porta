@@ -30,7 +30,8 @@ if args.env == "staging":
 else:
     youtrack_base_url = "https://youtrack.portaone.com"
 
-def get_committed_into(issue_id, auth, token=None):
+def get_issue_details(issue_id, auth, token=None):
+    details = {'committed_to': 'N/A', 'task_status': 'N/A'}
     try:
         # Use YouTrack REST API to get custom fields
         url = f"{youtrack_base_url}/api/issues/{issue_id}"
@@ -47,21 +48,27 @@ def get_committed_into(issue_id, auth, token=None):
         if response.status_code == 200:
             data = response.json()
             for field in data.get('customFields', []):
+                val = field.get('value')
+                
+                def format_val(v):
+                    if isinstance(v, list):
+                        res = ', '.join([x.get('name', '') for x in v if x])
+                        return res if res else 'N/A'
+                    elif isinstance(v, dict):
+                        res = v.get('name', '')
+                        return res if res else 'N/A'
+                    elif v:
+                        return str(v)
+                    return 'N/A'
+
                 if field.get('name') == 'Committed To':
-                    val = field.get('value')
-                    if isinstance(val, list):
-                        res = ', '.join([v.get('name', '') for v in val if v])
-                        return res if res else 'N/A'
-                    elif isinstance(val, dict):
-                        res = val.get('name', '')
-                        return res if res else 'N/A'
-                    elif val:
-                        return str(val)
-                    else:
-                        return 'N/A'
-        return 'N/A'
+                    details['committed_to'] = format_val(val)
+                elif field.get('name') == 'State':
+                    details['task_status'] = format_val(val)
+                    
+        return details
     except Exception as e:
-        return 'N/A'
+        return details
 
 # Construct the URL with MR number using f-string
 url = f"https://portaone.com/resources/protected/release_notes/json/MR{args.mr}.js"
@@ -95,14 +102,14 @@ try:
                 ]
 
                 # Print the table header
-                print("||#||Known issue||Committed To||Status||Comment||Time spent, min||")
+                print("||#||Known issue||Committed To||Task Status||Status||Comment||Time spent, min||")
 
                 # Print the extracted elements
                 for i, issue in enumerate(major_issues, start=1):
                     issue_link = f"{youtrack_base_url}/issue/{issue['id']}"
-                    committed_to = get_committed_into(issue['id'], (login, password), args.token)
+                    details = get_issue_details(issue['id'], (login, password), args.token)
                     # f-strings used for cleaner formatting
-                    print(f"|{i}|[{issue['subject']}|{issue_link}]|{committed_to}|{{status:title=Pending|colour=grey}}| | |")
+                    print(f"|{i}|[{issue['subject']}|{issue_link}]|{details['committed_to']}|{details['task_status']}|{{status:title=Pending|colour=grey}}| | |")
             
             except json.JSONDecodeError as e:
                 print(f"Error parsing JSON data: {e}")
