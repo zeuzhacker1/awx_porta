@@ -56,23 +56,26 @@ def get_issue_details(issue_id, auth, token=None):
         else:
             request_kwargs['auth'] = auth
             
-        response = requests.get(url, **request_kwargs, timeout=10)
+        response = requests.get(url, **request_kwargs, timeout=5)
         
         if response.status_code == 200:
             data = response.json()
             for field in data.get('customFields', []):
+                name = field.get('name')
                 val = field.get('value')
 
-                if field.get('name') == 'Committed To':
+                if name == 'Committed To':
                     details['committed_to'] = format_val(val)
-                elif field.get('name') in ['State', 'Status']:
-                    details['task_status'] = format_val(val)
+
+                if name == 'State' or name == 'Status':
+                    res = format_val(val)
+                    if res != 'N/A' or details['task_status'] == 'N/A':
+                        details['task_status'] = res
         else:
-            sys.stderr.write(f"Warning: Failed to fetch details for {issue_id}. Status code: {response.status_code}\n")
-                    
+            sys.stderr.write(f"Warning: Failed to fetch {issue_id}. Status: {response.status_code}\n")
         return details
     except Exception as e:
-        sys.stderr.write(f"Error: Exception while fetching details for {issue_id}: {str(e)}\n")
+        sys.stderr.write(f"Error fetching {issue_id}: {str(e)}\n")
         return details
 
 # Construct the URL with MR number using f-string
@@ -99,18 +102,23 @@ try:
             try:
                 json_data = json.loads(cleaned_body)
 
-                # Extract Major issues safely.
+                # Extract Major issues safely (case-insensitive)
                 processed_issues = []
                 for item in json_data:
-                    if not isinstance(item, dict): continue
-                    if item.get("severity") == "Major":
-                        # We use 'N/A' if ID is missing or empty
+                    if not isinstance(item, dict):
+                        continue
+                    
+                    raw_severity = str(item.get("severity", "")).strip().lower()
+                    if raw_severity == "major":
                         issue_id = item.get("id")
                         subject = item.get("subject")
                         processed_issues.append({
                             "id": str(issue_id) if issue_id else "N/A",
                             "subject": str(subject).lstrip() if subject else "N/A"
                         })
+                    else:
+                        # Log non-major issues to stderr for debugging
+                        pass
                 
                 # Print the table header
                 print("||#||Known issue||Committed To||Task Status||Status||Comment||Time spent, min||")
