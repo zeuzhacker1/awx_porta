@@ -31,12 +31,14 @@ else:
     youtrack_base_url = "https://youtrack.portaone.com"
 
 def format_val(v):
+    if v is None:
+        return 'N/A'
     if isinstance(v, list):
-        res = ', '.join([x.get('name', '') for x in v if x])
+        res = ', '.join([str(x.get('name', x)) for x in v if x])
         return res if res else 'N/A'
     elif isinstance(v, dict):
         res = v.get('name', '')
-        return res if res else 'N/A'
+        return str(res) if res else 'N/A'
     elif v:
         return str(v)
     return 'N/A'
@@ -65,9 +67,12 @@ def get_issue_details(issue_id, auth, token=None):
                     details['committed_to'] = format_val(val)
                 elif field.get('name') == 'State':
                     details['task_status'] = format_val(val)
+        else:
+            sys.stderr.write(f"Warning: Failed to fetch details for {issue_id}. Status code: {response.status_code}\n")
                     
         return details
     except Exception as e:
+        sys.stderr.write(f"Error: Exception while fetching details for {issue_id}: {str(e)}\n")
         return details
 
 # Construct the URL with MR number using f-string
@@ -106,10 +111,19 @@ try:
 
                 # Print the extracted elements
                 for i, issue in enumerate(major_issues, start=1):
-                    issue_link = f"{youtrack_base_url}/issue/{issue['id']}"
-                    details = get_issue_details(issue['id'], (login, password), args.token)
-                    # f-strings used for cleaner formatting
-                    print(f"|{i}|[{issue['subject']}|{issue_link}]|{details['committed_to']}|{details['task_status']}|{{status:title=Pending|colour=grey}}| | |")
+                    try:
+                        issue_id = issue.get('id', 'N/A')
+                        issue_subject = issue.get('subject', 'N/A')
+                        issue_link = f"{youtrack_base_url}/issue/{issue_id}" if issue_id != 'N/A' else '#'
+                        
+                        details = get_issue_details(issue_id, (login, password), args.token) if issue_id != 'N/A' else {'committed_to': 'N/A', 'task_status': 'N/A'}
+                        
+                        # f-strings used for cleaner formatting
+                        print(f"|{i}|[{issue_subject}|{issue_link}]|{details['committed_to']}|{details['task_status']}|{{status:title=Pending|colour=grey}}| | |")
+                    except Exception as e:
+                        sys.stderr.write(f"Error: Failed to process issue row {i}: {str(e)}\n")
+                        # Fallback row print if something goes wrong in the processing
+                        print(f"|{i}|[Issue processing failed|#]|N/A|N/A|{{status:title=Error|colour=red}}| | |")
             
             except json.JSONDecodeError as e:
                 print(f"Error parsing JSON data: {e}")
