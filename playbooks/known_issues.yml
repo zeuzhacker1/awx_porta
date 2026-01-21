@@ -18,7 +18,7 @@
       when: login is not defined or password is not defined
 
     - name: Run known_issues.py script
-      command: "/usr/bin/python3 /runner/project/local_scripts/known_issues.py --mr {{ mr }} --user '{{ login }}' --password '{{ password }}' --token '{{ yt_api_token }}' --env {{ env | default('prod') }} --db-path '{{ db_path | default('/home/awx/known_issues.sqlite') }}'"
+      command: "/usr/bin/python3 /runner/project/local_scripts/known_issues.py --mr {{ mr }} --user '{{ login }}' --password '{{ password }}' --token '{{ yt_api_token }}' --env {{ env | default('prod') }} --db-path '{{ db_path | default('known_issues.sqlite') }}'"
       register: script_output
       changed_when: false
       failed_when: script_output.rc != 0
