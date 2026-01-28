@@ -61,9 +61,10 @@
           }}
       when: comment is defined
 
-    - name: Append data from variables to notification
+    - name: Update comment in workflow
       set_stats:
-        data: "{{ comment }}"
+        data:
+          comment: "{{ comment }}"
       when: comment is defined
 
     - name: exit on undef conditions
