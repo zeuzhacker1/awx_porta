@@ -47,17 +47,18 @@
 
     - name: Append data from variables to notification
       set_fact:
-        comment: "{{ comment |
-          replace('{{ AWX_lvl_1_cmd_output }}', lvl.cmd_output | default('')) |
-          replace('{{ AWX_lvl_1_aux_cmd_output }}', lvl.aux_cmd_output | default('')) |
-          replace('{{ AWX_lvl_2_cmd_output }}', lvl.cmd_output | default('')) |
-          replace('{{ AWX_lvl_2_aux_cmd_output }}', lvl.aux_cmd_output | default('')) |
-          replace('{{ AWX_lvl_3_cmd_output }}', lvl.cmd_output | default('')) |
-          replace('{{ AWX_lvl_3_aux_cmd_output }}', lvl.aux_cmd_output | default('')) |
+        updated_comment: "{{ comment |
+          replace('{{ AWX_lvl_1_cmd_output }}', {{ AWX_lvl_1_cmd_output }} | default('')) |
+          replace('{{ AWX_lvl_1_aux_cmd_output }}', {{ AWX_lvl_1_aux_cmd_output }} | default('')) |
+          replace('{{ AWX_lvl_2_cmd_output }}', {{ AWX_lvl_2_cmd_output }} | default('')) |
+          replace('{{ AWX_lvl_2_aux_cmd_output }}', {{ AWX_lvl_2_aux_cmd_output }} | default('')) |
+          replace('{{ AWX_lvl_3_cmd_output }}', {{ AWX_lvl_3_cmd_output }} | default('')) |
+          replace('{{ AWX_lvl_3_aux_cmd_output }}', {{ AWX_lvl_3_aux_cmd_output }} | default('')) |
           replace('{{ mr_from }}', mr_from | default('')) |
           replace('{{ mr_to }}', mr_to | default('')) |
           replace('\n', ' \n ') }}"
       when: comment is defined
+
 
     - name: exit on undef conditions
       fail: msg="XXX{{':'}} Args error{{':'}} neither '{{ var_fc }}' nor '{{ var_sc }}' are defined"
