@@ -1,0 +1,76 @@
+- hosts: all
+  name: compare output of previous commands with args
+  gather_facts: no
+
+  vars:
+    def_lvl: "lvl_none"
+    var_fc: "fail_condition"
+    var_sc: "success_condition"
+    wr: "x_"  # wrapper for non-null strings
+
+  tasks:
+    - name: define prefixed
+      set_fact:
+        var_fc: "{{ out_prefix }}_{{ var_fc }}"
+        var_sc: "{{ out_prefix }}_{{ var_sc }}"
+      when: out_prefix is defined
+
+    - name: define non-prefixed
+      set_fact:
+        out_prefix: "{{ def_lvl }}"
+      when: out_prefix is not defined
+
+    - name: show levels vars
+      debug: var="{{ out_prefix }}"
+      
+    - name: exit on absent lvl output
+      fail: msg="XXX{{':'}} Input error{{':'}} outputs for '{{ out_prefix }}' are absent"
+      when: vars[out_prefix] is not defined
+
+    - name: exit on absent lvl output
+      fail: msg="XXX{{':'}} Input error{{':'}} outputs for '{{ out_prefix }}' are absent"
+      when: vars[out_prefix].cmd_output  is not defined
+
+    - name: define args
+      set_fact:
+         xxx:    
+            x_fc: "{{ wr + vars[var_fc] if vars[var_fc] is defined else '' }}"
+            x_sc: "{{ wr + vars[var_sc] if vars[var_sc] is defined else '' }}"
+
+    - name: combine list
+      set_fact:
+         "{{ out_prefix }}": "{{ vars[out_prefix] | combine(xxx) }}"
+
+    - name: show updated lvl vars
+      debug:
+         var: hostvars[inventory_hostname][out_prefix]
+
+    - name: Append data from variables to notification
+      set_fact:
+        comment: "{{ comment |
+          replace('{{ AWX_lvl_1_cmd_output }}', lvl.cmd_output | default('')) |
+          replace('{{ AWX_lvl_1_aux_cmd_output }}', lvl.aux_cmd_output | default('')) |
+          replace('{{ AWX_lvl_2_cmd_output }}', lvl.cmd_output | default('')) |
+          replace('{{ AWX_lvl_2_aux_cmd_output }}', lvl.aux_cmd_output | default('')) |
+          replace('{{ AWX_lvl_3_cmd_output }}', lvl.cmd_output | default('')) |
+          replace('{{ AWX_lvl_3_aux_cmd_output }}', lvl.aux_cmd_output | default('')) |
+          replace('{{ mr_from }}', mr_from | default('')) |
+          replace('{{ mr_to }}', mr_to | default('')) |
+          replace('\n', ' \n ') }}"
+      when: comment is defined
+
+    - name: exit on undef conditions
+      fail: msg="XXX{{':'}} Args error{{':'}} neither '{{ var_fc }}' nor '{{ var_sc }}' are defined"
+      when: 
+         - xxx.x_fc == ""
+         - xxx.x_sc == ""
+
+    - name: exit on failed conditions
+      block:
+#        - ansible.builtin.shell:
+#             cmd:  echo "XXX - condition for command failed"
+        - fail: msg="XXX{{':'}} condition for command failed"
+      when: >
+         ((xxx.x_fc != "") and (xxx.x_fc == wr + vars[out_prefix].cmd_output)) or
+         ((xxx.x_sc != "") and (xxx.x_sc != wr + vars[out_prefix].cmd_output))
+
