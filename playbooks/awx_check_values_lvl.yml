@@ -45,9 +45,9 @@
       debug:
          var: hostvars[inventory_hostname][out_prefix]
 
-    - name: Append data from variables to notification
+    - name: Append data from variables to comment
       set_fact:
-        updated_comment: >-
+        comment: >-
           {{ comment |
              replace('{{ AWX_lvl_1_cmd_output }}', AWX_lvl_1_cmd_output | default('')) |
              replace('{{ AWX_lvl_1_aux_cmd_output }}', AWX_lvl_1_aux_cmd_output | default('')) |
@@ -59,6 +59,11 @@
              replace('{{ mr_to }}', mr_to | default('')) |
              replace('\n', ' \n ') 
           }}
+      when: comment is defined
+
+    - name: Append data from variables to notification
+      set_stats:
+        data: "{{ comment }}"
       when: comment is defined
 
     - name: exit on undef conditions
