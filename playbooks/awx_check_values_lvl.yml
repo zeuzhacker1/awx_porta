@@ -48,7 +48,7 @@
     - name: Update comment in workflow with variables
       set_stats:
         data:
-          comment: >-
+          updated_comment: >-
             {{ comment |
               replace('{{ AWX_lvl_1_cmd_output }}', AWX_lvl_1_cmd_output | default('')) |
                replace('{{ AWX_lvl_1_aux_cmd_output }}', AWX_lvl_1_aux_cmd_output | default('')) |
