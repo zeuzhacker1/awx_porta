@@ -1,0 +1,739 @@
+[IndexNode(
+  cmods = []
+  next = (
+    [IndexNode(
+      cmods = []
+      next = (
+        [IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = []
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PIMod(
+                              amod = ModifiedRepoFilePI(change_type='D', is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/test/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt=None, dev_tt=None, fixed_in=None, number='1', sha='patshaA', subject='B2BUA dummy subj A')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            ), PIMod(
+                              amod = ModifiedRepoFilePI(change_type='D', is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/test/subdirA/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt=None, dev_tt=None, fixed_in=None, number='1', sha='patshaA', subject='B2BUA dummy subj A')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            )]
+                          )
+                          next = []
+                          token = 'subdirA'
+                        )]
+                      )
+                      token = 'test'
+                    ), IndexNode(
+                      cmods = []
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PIMod(
+                              amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt=None, dev_tt=None, fixed_in='mr120-0', number='4', sha='patshaD', subject='CUSTOMER CHANGES: B2BUA dummy subj C')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            ), PIMod(
+                              amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/subdirA/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt=None, dev_tt=None, fixed_in='mr120-0', number='4', sha='patshaD', subject='CUSTOMER CHANGES: B2BUA dummy subj C')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            )]
+                          )
+                          next = []
+                          token = 'subdirA'
+                        )]
+                      )
+                      token = 'subdirB'
+                    )]
+                  )
+                  token = 'sippy'
+                )]
+              )
+              token = 'porta-sip'
+            )]
+          )
+          token = 'home'
+        )]
+      )
+      token = <Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>
+    ), IndexNode(
+      cmods = []
+      next = (
+        [IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = (
+                        [PIMod(
+                          amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirA/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>)
+                          bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                          patch = PIPatch(csup_tt='PortaOne-AAAAA', dev_tt='SIP-AAAAA', fixed_in='mr120-0', number='2', sha='patshaB', subject='B2BUA dummy subj B')
+                          servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                        ), PIMod(
+                          amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirA/fileB', resolution=<Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>)
+                          bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                          patch = PIPatch(csup_tt='PortaOne-AAAAA', dev_tt='SIP-AAAAA', fixed_in='mr120-0', number='2', sha='patshaB', subject='B2BUA dummy subj B')
+                          servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                        ), PIMod(
+                          amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirA/fileC', resolution=<Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>)
+                          bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                          patch = PIPatch(csup_tt='PortaOne-AAAAA', dev_tt='SIP-AAAAA', fixed_in='mr120-0', number='2', sha='patshaB', subject='B2BUA dummy subj B')
+                          servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                        )]
+                      )
+                      next = []
+                      token = 'subdirA'
+                    ), IndexNode(
+                      cmods = (
+                        [PIMod(
+                          amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>)
+                          bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                          patch = PIPatch(csup_tt='PortaOne-AAAAA', dev_tt='SIP-AAAAA', fixed_in='mr120-0', number='2', sha='patshaB', subject='B2BUA dummy subj B')
+                          servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                        ), PIMod(
+                          amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/fileB', resolution=<Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>)
+                          bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                          patch = PIPatch(csup_tt='PortaOne-AAAAA', dev_tt='SIP-AAAAA', fixed_in='mr120-0', number='2', sha='patshaB', subject='B2BUA dummy subj B')
+                          servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                        )]
+                      )
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PIMod(
+                              amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/subdirA/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt='PortaOne-AAAAA', dev_tt='SIP-AAAAA', fixed_in='mr120-0', number='2', sha='patshaB', subject='B2BUA dummy subj B')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            )]
+                          )
+                          next = []
+                          token = 'subdirA'
+                        )]
+                      )
+                      token = 'subdirB'
+                    )]
+                  )
+                  token = 'sippy'
+                )]
+              )
+              token = 'porta-sip'
+            )]
+          )
+          token = 'home'
+        )]
+      )
+      token = <Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>
+    ), IndexNode(
+      cmods = []
+      next = (
+        [IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = []
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PIMod(
+                              amod = ModifiedRepoFilePI(change_type='A', is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/test/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_KNOWN: 2>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt='PortaOne-BBBBB', dev_tt=None, fixed_in=None, number='3', sha='patshaC', subject='B2BUA dummy subj C')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            ), PIMod(
+                              amod = ModifiedRepoFilePI(change_type='A', is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/test/subdirA/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_KNOWN: 2>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt='PortaOne-BBBBB', dev_tt=None, fixed_in=None, number='3', sha='patshaC', subject='B2BUA dummy subj C')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            )]
+                          )
+                          next = []
+                          token = 'subdirA'
+                        )]
+                      )
+                      token = 'test'
+                    )]
+                  )
+                  token = 'sippy'
+                )]
+              )
+              token = 'porta-sip'
+            ), IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = (
+                    [PIMod(
+                      amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='porta-admin', path='/home/porta-admin/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_KNOWN: 2>)
+                      bundle = PIBundle(is_dirty=True, name='porta-admin:master:basshaB', sha='bunshaB')
+                      patch = PIPatch(csup_tt='PortaOne-DDDDD', dev_tt=None, fixed_in='mr120-0', number='2', sha='patshaB', subject='PortaAdmin dummy subj B')
+                      servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                    )]
+                  )
+                  next = []
+                  token = 'subdirA'
+                )]
+              )
+              token = 'porta-admin'
+            )]
+          )
+          token = 'home'
+        )]
+      )
+      token = <Resolution.MANUAL_ATTENTION_REQUIRED_KNOWN: 2>
+    ), IndexNode(
+      cmods = []
+      next = (
+        [IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = (
+                        [PIMod(
+                          amod = ModifiedRepoFilePI(change_type='D', is_ignored=True, is_warning=False, package='porta-admin', path='/home/porta-admin/_internal/subdirA/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                          bundle = PIBundle(is_dirty=True, name='porta-admin:master:basshaB', sha='bunshaB')
+                          patch = PIPatch(csup_tt='PortaOne-CCCCC', dev_tt=None, fixed_in='mr120-0', number='1', sha='patshaA', subject='PortaAdmin dummy subj A')
+                          servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                        )]
+                      )
+                      next = []
+                      token = 'subdirA'
+                    )]
+                  )
+                  token = '_internal'
+                )]
+              )
+              token = 'porta-admin'
+            )]
+          )
+          token = 'home'
+        )]
+      )
+      token = <Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>
+    )]
+  )
+  token = Server(_is_known=False, ip=None, name='conf')
+), IndexNode(
+  cmods = []
+  next = (
+    [IndexNode(
+      cmods = []
+      next = (
+        [IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = []
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PIMod(
+                              amod = ModifiedRepoFilePI(change_type='D', is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/test/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt=None, dev_tt=None, fixed_in=None, number='1', sha='patshaA', subject='B2BUA dummy subj A')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            ), PIMod(
+                              amod = ModifiedRepoFilePI(change_type='D', is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/test/subdirA/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt=None, dev_tt=None, fixed_in=None, number='1', sha='patshaA', subject='B2BUA dummy subj A')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            )]
+                          )
+                          next = []
+                          token = 'subdirA'
+                        )]
+                      )
+                      token = 'test'
+                    ), IndexNode(
+                      cmods = []
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PIMod(
+                              amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt=None, dev_tt=None, fixed_in='mr120-0', number='4', sha='patshaD', subject='CUSTOMER CHANGES: B2BUA dummy subj C')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            ), PIMod(
+                              amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/subdirA/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt=None, dev_tt=None, fixed_in='mr120-0', number='4', sha='patshaD', subject='CUSTOMER CHANGES: B2BUA dummy subj C')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            )]
+                          )
+                          next = []
+                          token = 'subdirA'
+                        )]
+                      )
+                      token = 'subdirB'
+                    )]
+                  )
+                  token = 'sippy'
+                )]
+              )
+              token = 'porta-sip'
+            )]
+          )
+          token = 'home'
+        )]
+      )
+      token = <Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>
+    ), IndexNode(
+      cmods = []
+      next = (
+        [IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = (
+                        [PIMod(
+                          amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirA/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>)
+                          bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                          patch = PIPatch(csup_tt='PortaOne-AAAAA', dev_tt='SIP-AAAAA', fixed_in='mr120-0', number='2', sha='patshaB', subject='B2BUA dummy subj B')
+                          servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                        ), PIMod(
+                          amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirA/fileB', resolution=<Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>)
+                          bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                          patch = PIPatch(csup_tt='PortaOne-AAAAA', dev_tt='SIP-AAAAA', fixed_in='mr120-0', number='2', sha='patshaB', subject='B2BUA dummy subj B')
+                          servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                        ), PIMod(
+                          amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirA/fileC', resolution=<Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>)
+                          bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                          patch = PIPatch(csup_tt='PortaOne-AAAAA', dev_tt='SIP-AAAAA', fixed_in='mr120-0', number='2', sha='patshaB', subject='B2BUA dummy subj B')
+                          servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                        )]
+                      )
+                      next = []
+                      token = 'subdirA'
+                    ), IndexNode(
+                      cmods = (
+                        [PIMod(
+                          amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>)
+                          bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                          patch = PIPatch(csup_tt='PortaOne-AAAAA', dev_tt='SIP-AAAAA', fixed_in='mr120-0', number='2', sha='patshaB', subject='B2BUA dummy subj B')
+                          servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                        ), PIMod(
+                          amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/fileB', resolution=<Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>)
+                          bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                          patch = PIPatch(csup_tt='PortaOne-AAAAA', dev_tt='SIP-AAAAA', fixed_in='mr120-0', number='2', sha='patshaB', subject='B2BUA dummy subj B')
+                          servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                        )]
+                      )
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PIMod(
+                              amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/subdirA/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt='PortaOne-AAAAA', dev_tt='SIP-AAAAA', fixed_in='mr120-0', number='2', sha='patshaB', subject='B2BUA dummy subj B')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            )]
+                          )
+                          next = []
+                          token = 'subdirA'
+                        )]
+                      )
+                      token = 'subdirB'
+                    )]
+                  )
+                  token = 'sippy'
+                )]
+              )
+              token = 'porta-sip'
+            )]
+          )
+          token = 'home'
+        )]
+      )
+      token = <Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>
+    ), IndexNode(
+      cmods = []
+      next = (
+        [IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = []
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PIMod(
+                              amod = ModifiedRepoFilePI(change_type='A', is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/test/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_KNOWN: 2>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt='PortaOne-BBBBB', dev_tt=None, fixed_in=None, number='3', sha='patshaC', subject='B2BUA dummy subj C')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            ), PIMod(
+                              amod = ModifiedRepoFilePI(change_type='A', is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/test/subdirA/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_KNOWN: 2>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt='PortaOne-BBBBB', dev_tt=None, fixed_in=None, number='3', sha='patshaC', subject='B2BUA dummy subj C')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            )]
+                          )
+                          next = []
+                          token = 'subdirA'
+                        )]
+                      )
+                      token = 'test'
+                    )]
+                  )
+                  token = 'sippy'
+                )]
+              )
+              token = 'porta-sip'
+            ), IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = (
+                    [PIMod(
+                      amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='porta-admin', path='/home/porta-admin/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_KNOWN: 2>)
+                      bundle = PIBundle(is_dirty=True, name='porta-admin:master:basshaB', sha='bunshaB')
+                      patch = PIPatch(csup_tt='PortaOne-DDDDD', dev_tt=None, fixed_in='mr120-0', number='2', sha='patshaB', subject='PortaAdmin dummy subj B')
+                      servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                    )]
+                  )
+                  next = []
+                  token = 'subdirA'
+                )]
+              )
+              token = 'porta-admin'
+            )]
+          )
+          token = 'home'
+        )]
+      )
+      token = <Resolution.MANUAL_ATTENTION_REQUIRED_KNOWN: 2>
+    ), IndexNode(
+      cmods = []
+      next = (
+        [IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = (
+                        [PIMod(
+                          amod = ModifiedRepoFilePI(change_type='D', is_ignored=True, is_warning=False, package='porta-admin', path='/home/porta-admin/_internal/subdirA/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                          bundle = PIBundle(is_dirty=True, name='porta-admin:master:basshaB', sha='bunshaB')
+                          patch = PIPatch(csup_tt='PortaOne-CCCCC', dev_tt=None, fixed_in='mr120-0', number='1', sha='patshaA', subject='PortaAdmin dummy subj A')
+                          servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                        )]
+                      )
+                      next = []
+                      token = 'subdirA'
+                    )]
+                  )
+                  token = '_internal'
+                )]
+              )
+              token = 'porta-admin'
+            )]
+          )
+          token = 'home'
+        )]
+      )
+      token = <Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>
+    )]
+  )
+  token = Server(_is_known=False, ip=None, name='sip')
+), IndexNode(
+  cmods = []
+  next = (
+    [IndexNode(
+      cmods = []
+      next = (
+        [IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = []
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PIMod(
+                              amod = ModifiedRepoFilePI(change_type='D', is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/test/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt=None, dev_tt=None, fixed_in=None, number='1', sha='patshaA', subject='B2BUA dummy subj A')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            ), PIMod(
+                              amod = ModifiedRepoFilePI(change_type='D', is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/test/subdirA/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt=None, dev_tt=None, fixed_in=None, number='1', sha='patshaA', subject='B2BUA dummy subj A')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            )]
+                          )
+                          next = []
+                          token = 'subdirA'
+                        )]
+                      )
+                      token = 'test'
+                    ), IndexNode(
+                      cmods = []
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PIMod(
+                              amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt=None, dev_tt=None, fixed_in='mr120-0', number='4', sha='patshaD', subject='CUSTOMER CHANGES: B2BUA dummy subj C')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            ), PIMod(
+                              amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/subdirA/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt=None, dev_tt=None, fixed_in='mr120-0', number='4', sha='patshaD', subject='CUSTOMER CHANGES: B2BUA dummy subj C')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            )]
+                          )
+                          next = []
+                          token = 'subdirA'
+                        )]
+                      )
+                      token = 'subdirB'
+                    )]
+                  )
+                  token = 'sippy'
+                )]
+              )
+              token = 'porta-sip'
+            )]
+          )
+          token = 'home'
+        )]
+      )
+      token = <Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>
+    ), IndexNode(
+      cmods = []
+      next = (
+        [IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = (
+                        [PIMod(
+                          amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirA/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>)
+                          bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                          patch = PIPatch(csup_tt='PortaOne-AAAAA', dev_tt='SIP-AAAAA', fixed_in='mr120-0', number='2', sha='patshaB', subject='B2BUA dummy subj B')
+                          servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                        ), PIMod(
+                          amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirA/fileB', resolution=<Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>)
+                          bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                          patch = PIPatch(csup_tt='PortaOne-AAAAA', dev_tt='SIP-AAAAA', fixed_in='mr120-0', number='2', sha='patshaB', subject='B2BUA dummy subj B')
+                          servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                        ), PIMod(
+                          amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirA/fileC', resolution=<Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>)
+                          bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                          patch = PIPatch(csup_tt='PortaOne-AAAAA', dev_tt='SIP-AAAAA', fixed_in='mr120-0', number='2', sha='patshaB', subject='B2BUA dummy subj B')
+                          servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                        )]
+                      )
+                      next = []
+                      token = 'subdirA'
+                    ), IndexNode(
+                      cmods = (
+                        [PIMod(
+                          amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>)
+                          bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                          patch = PIPatch(csup_tt='PortaOne-AAAAA', dev_tt='SIP-AAAAA', fixed_in='mr120-0', number='2', sha='patshaB', subject='B2BUA dummy subj B')
+                          servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                        ), PIMod(
+                          amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/fileB', resolution=<Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>)
+                          bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                          patch = PIPatch(csup_tt='PortaOne-AAAAA', dev_tt='SIP-AAAAA', fixed_in='mr120-0', number='2', sha='patshaB', subject='B2BUA dummy subj B')
+                          servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                        )]
+                      )
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PIMod(
+                              amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/subdirA/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt='PortaOne-AAAAA', dev_tt='SIP-AAAAA', fixed_in='mr120-0', number='2', sha='patshaB', subject='B2BUA dummy subj B')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            )]
+                          )
+                          next = []
+                          token = 'subdirA'
+                        )]
+                      )
+                      token = 'subdirB'
+                    )]
+                  )
+                  token = 'sippy'
+                )]
+              )
+              token = 'porta-sip'
+            )]
+          )
+          token = 'home'
+        )]
+      )
+      token = <Resolution.NO_ATTENTION_REQUIRED_KNOWN: 4>
+    ), IndexNode(
+      cmods = []
+      next = (
+        [IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = []
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PIMod(
+                              amod = ModifiedRepoFilePI(change_type='A', is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/test/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_KNOWN: 2>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt='PortaOne-BBBBB', dev_tt=None, fixed_in=None, number='3', sha='patshaC', subject='B2BUA dummy subj C')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            ), PIMod(
+                              amod = ModifiedRepoFilePI(change_type='A', is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/test/subdirA/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_KNOWN: 2>)
+                              bundle = PIBundle(is_dirty=False, name='b2bua:patches_v1:basshaA', sha='bunshaA')
+                              patch = PIPatch(csup_tt='PortaOne-BBBBB', dev_tt=None, fixed_in=None, number='3', sha='patshaC', subject='B2BUA dummy subj C')
+                              servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                            )]
+                          )
+                          next = []
+                          token = 'subdirA'
+                        )]
+                      )
+                      token = 'test'
+                    )]
+                  )
+                  token = 'sippy'
+                )]
+              )
+              token = 'porta-sip'
+            ), IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = (
+                    [PIMod(
+                      amod = ModifiedRepoFilePI(change_type='M', is_ignored=False, is_warning=False, package='porta-admin', path='/home/porta-admin/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_KNOWN: 2>)
+                      bundle = PIBundle(is_dirty=True, name='porta-admin:master:basshaB', sha='bunshaB')
+                      patch = PIPatch(csup_tt='PortaOne-DDDDD', dev_tt=None, fixed_in='mr120-0', number='2', sha='patshaB', subject='PortaAdmin dummy subj B')
+                      servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                    )]
+                  )
+                  next = []
+                  token = 'subdirA'
+                )]
+              )
+              token = 'porta-admin'
+            )]
+          )
+          token = 'home'
+        )]
+      )
+      token = <Resolution.MANUAL_ATTENTION_REQUIRED_KNOWN: 2>
+    ), IndexNode(
+      cmods = []
+      next = (
+        [IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = (
+                        [PIMod(
+                          amod = ModifiedRepoFilePI(change_type='D', is_ignored=True, is_warning=False, package='porta-admin', path='/home/porta-admin/_internal/subdirA/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                          bundle = PIBundle(is_dirty=True, name='porta-admin:master:basshaB', sha='bunshaB')
+                          patch = PIPatch(csup_tt='PortaOne-CCCCC', dev_tt=None, fixed_in='mr120-0', number='1', sha='patshaA', subject='PortaAdmin dummy subj A')
+                          servers = [Server(_is_known=False, ip=None, name='conf'), Server(_is_known=False, ip=None, name='sip'), Server(_is_known=False, ip=None, name='web')]
+                        )]
+                      )
+                      next = []
+                      token = 'subdirA'
+                    )]
+                  )
+                  token = '_internal'
+                )]
+              )
+              token = 'porta-admin'
+            )]
+          )
+          token = 'home'
+        )]
+      )
+      token = <Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>
+    )]
+  )
+  token = Server(_is_known=False, ip=None, name='web')
+)]

@@ -1,0 +1,559 @@
+
+# This is local modifications analysis and comparison report.
+# Below is only mandatory data for your manual attention.
+#
+# If you believe a modification should be ignored by default,
+# add it to one of the EXPECTED_* regex lists in defaults.py
+# and commit it to support-repo to save other SEs time.
+#
+# All expected modifications are skipped; such as:
+# - /etc files that usually appear in check_patches_f output and there's
+#   no need to check them as shown by practice.
+# - Modifications detected by check_patches_f but accounted in Patches
+#   Inventory bundle that has no issues. See information below about
+#   affected PI bundles.
+# - Removed or modified functional or autotests that always appear both
+#   in check_patches_f output and PI bundles.
+# - Recompiled files such as in result of PortaAdmin frontend patching
+#   with TypeScript code recompilation.
+# - Unknown installed RPMs that often appear in check_patches_f output
+#   and usually ignored by user.
+#
+# There are two versions of report:
+# - Compact version where only detected modification metadata.
+# - Full version where diffs are supplied too.
+#
+# Typical reasons why PI bundle is considered affected:
+# - The Support-Ticket header isn't set in affected patch in PI bundle.
+#   This means that the patch was created during old slurp operation and
+#   it's most likely unknown.
+# - The affected bundle is dirty, i.e., there might be unaccounted
+#   modifications that you should investigate.
+# - The affected patch has no Fixed-In header. This means it will be
+#   reapplied continuously after each update by the redo command.
+
+
+# check_patches_f analysis and details
+
+
+========================================= ID #{1} metadata =========================================
+  Reason: Unknown OS file modification
+  Modified object:
+    Path to modified file:      /etc/systemd/system/nscasender.service.d/CSUP-AAAAA/override.conf
+    RPM owner of modified file: unknown, not important
+    Resolution:                 Manual attention required, unknown to default filters
+  Affected servers:
+    Server name: conf; Server IP: 127.0.0.1;
+
+========================================= ID #{2} metadata =========================================
+  Reason: Unknown even for PI and unexpected
+  Modified object:
+    Path to modified file:      /home/porta-configurator/subdirA/fileA
+    RPM owner of modified file: porta-configurator
+    Resolution:                 Manual attention required, unknown to default filters
+  Affected servers:
+    Server name: conf; Server IP: 127.0.0.1;
+    Server name: web;  Server IP: 127.0.0.2;
+    Server name: sip;  Server IP: 127.0.0.3;
+
+========================================= ID #{3} metadata =========================================
+  Reason: Unknown even for PI and unexpected
+  Modified object:
+    Path to modified file:      /home/porta-configurator/subdirA/fileB
+    RPM owner of modified file: porta-configurator
+    Resolution:                 Manual attention required, unknown to default filters
+  Affected servers:
+    Server name: conf; Server IP: 127.0.0.1;
+    Server name: web;  Server IP: 127.0.0.2;
+    Server name: sip;  Server IP: 127.0.0.3;
+
+========================================= ID #{4} metadata =========================================
+  Reason: Unknown even for PI and unexpected
+  Modified object:
+    Path to modified file:      /home/porta-configurator/subdirB/fileA
+    RPM owner of modified file: porta-configurator
+    Resolution:                 Manual attention required, unknown to default filters
+  Affected servers:
+    Server name: conf; Server IP: 127.0.0.1;
+    Server name: web;  Server IP: 127.0.0.2;
+    Server name: sip;  Server IP: 127.0.0.3;
+
+========================================= ID #{5} metadata =========================================
+  Reason: .tt.local files always should be checked
+  Modified object:
+    Path to modified file:      /home/porta-configurator/etc/tt/PortaSwitch/porta-monitor.crontab.tt
+    RPM owner of modified file: unknown, not important
+    Resolution:                 Manual attention required, unknown to default filters
+  Affected servers:
+    Server name: conf; Server IP: 127.0.0.1;
+
+======================================== ID #{14} metadata =========================================
+  Reason: Unknown installed RPM
+  Modified object:
+    RPM name:   NetworkManager
+    Resolution: Manual attention required, unknown to default filters
+  Affected servers:
+    Server name: conf; Server IP: 127.0.0.1;
+
+======================================== ID #{15} metadata =========================================
+  Reason: Unknown installed RPM
+  Modified object:
+    RPM name:   systemd
+    Resolution: Manual attention required, unknown to default filters
+  Affected servers:
+    Server name: conf; Server IP: 127.0.0.1;
+    Server name: web;  Server IP: 127.0.0.2;
+    Server name: sip;  Server IP: 127.0.0.3;
+
+======================================== ID #{16} metadata =========================================
+  Reason: Unknown OS file modification
+  Modified object:
+    Path to modified file:      /etc/porta-one/unknown-web.config
+    RPM owner of modified file: unknown, not important
+    Resolution:                 Manual attention required, unknown to default filters
+  Affected servers:
+    Server name: web; Server IP: 127.0.0.2;
+
+======================================== ID #{17} metadata =========================================
+  Reason: Unknown OS file modification
+  Modified object:
+    Path to modified file:      /etc/httpd/conf.d/porta.httpd.0m0.conf
+    RPM owner of modified file: unknown, not important
+    Resolution:                 Manual attention required, unknown to default filters
+  Affected servers:
+    Server name: web; Server IP: 127.0.0.2;
+
+======================================== ID #{18} metadata =========================================
+  Reason: .tt.local files always should be checked
+  Modified object:
+    Path to modified file:      /home/porta-configurator/etc/tt/shared/exim.conf.tt
+    RPM owner of modified file: unknown, not important
+    Resolution:                 Manual attention required, unknown to default filters
+  Affected servers:
+    Server name: web; Server IP: 127.0.0.2;
+
+======================================== ID #{19} metadata =========================================
+  Reason: Unknown installed RPM
+  Modified object:
+    RPM name:   gnome
+    Resolution: Manual attention required, unknown to default filters
+  Affected servers:
+    Server name: web; Server IP: 127.0.0.2;
+
+======================================== ID #{20} metadata =========================================
+  Reason: Unknown OS file modification
+  Modified object:
+    Path to modified file:      /etc/logrotate.d/unknown-sip.config
+    RPM owner of modified file: unknown, not important
+    Resolution:                 Manual attention required, unknown to default filters
+  Affected servers:
+    Server name: sip; Server IP: 127.0.0.3;
+
+======================================== ID #{21} metadata =========================================
+  Reason: Unknown even for PI and unexpected
+  Modified object:
+    Path to modified file:      /home/porta-sip/sippy/subdirC/subdirA/fileA
+    RPM owner of modified file: b2bua
+    Resolution:                 Manual attention required, unknown to default filters
+  Affected servers:
+    Server name: sip; Server IP: 127.0.0.3;
+
+======================================== ID #{22} metadata =========================================
+  Reason: Unknown installed RPM
+  Modified object:
+    RPM name:   pulseaudio
+    Resolution: Manual attention required, unknown to default filters
+  Affected servers:
+    Server name: sip; Server IP: 127.0.0.3;
+
+================================== ID #{Skipped PC mods} metadata ==================================
+  Reason: User request
+  List start
+
+    Modified object:
+      Path to modified file:      /etc/.passphrases
+      RPM owner of modified file: unknown, not important
+      Resolution:                 No attention required, forced by default filters
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+      Server name: web;  Server IP: 127.0.0.2;
+      Server name: sip;  Server IP: 127.0.0.3;
+
+    Modified object:
+      Path to modified file:      /etc/.updated
+      RPM owner of modified file: unknown, not important
+      Resolution:                 No attention required, forced by default filters
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+      Server name: web;  Server IP: 127.0.0.2;
+      Server name: sip;  Server IP: 127.0.0.3;
+
+    Modified object:
+      Path to modified file:      /etc/systemd/system/multi-user.target.wants/logmaster-sipcluster@pb-Main.service
+      RPM owner of modified file: unknown, not important
+      Resolution:                 No attention required, forced by default filters
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+
+    Modified object:
+      Path to modified file:      /home/porta-configurator/.git/index
+      RPM owner of modified file: porta-configurator
+      Resolution:                 No attention required, forced by default filters
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+      Server name: web;  Server IP: 127.0.0.2;
+      Server name: sip;  Server IP: 127.0.0.3;
+
+    Modified object:
+      Path to modified file:      /home/porta-configurator/data/etc/options-dump/subdirA/fileA
+      RPM owner of modified file: porta-configurator-data
+      Resolution:                 No attention required, forced by default filters
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+      Server name: web;  Server IP: 127.0.0.2;
+      Server name: sip;  Server IP: 127.0.0.3;
+
+    Modified object:
+      Path to modified file:      /home/porta-configurator/data/etc/options-dump/subdirA/fileB
+      RPM owner of modified file: porta-configurator-data
+      Resolution:                 No attention required, forced by default filters
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+      Server name: web;  Server IP: 127.0.0.2;
+      Server name: sip;  Server IP: 127.0.0.3;
+
+    Modified object:
+      Path to modified file:      /home/porta-sip/sippy/.git/index
+      RPM owner of modified file: b2bua
+      Resolution:                 No attention required, forced by default filters
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+      Server name: web;  Server IP: 127.0.0.2;
+      Server name: sip;  Server IP: 127.0.0.3;
+
+    Modified object:
+      Path to modified file:      /home/porta-sip/sippy/test/subdirA/fileA
+      RPM owner of modified file: b2bua
+      Resolution:                 No attention required, forced by default filters
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+      Server name: web;  Server IP: 127.0.0.2;
+      Server name: sip;  Server IP: 127.0.0.3;
+
+    Modified object:
+      Path to modified file:      /home/porta-sip/sippy/test/subdirA/fileB
+      RPM owner of modified file: b2bua
+      Resolution:                 No attention required, forced by default filters
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+      Server name: web;  Server IP: 127.0.0.2;
+      Server name: sip;  Server IP: 127.0.0.3;
+
+    Modified object:
+      Path to modified file:      /home/porta-admin/_internal/subdirA/fileA
+      RPM owner of modified file: porta-admin
+      Resolution:                 No attention required, forced by default filters
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+      Server name: web;  Server IP: 127.0.0.2;
+      Server name: sip;  Server IP: 127.0.0.3;
+
+    Modified object:
+      RPM name:   avahi-libs
+      Resolution: No attention required, forced by default filters
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+
+    Modified object:
+      RPM name:   cracklib
+      Resolution: No attention required, forced by default filters
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+
+    Modified object:
+      RPM name:   cifs-utils
+      Resolution: No attention required, forced by default filters
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+
+    Modified object:
+      RPM name:   dbus-libs
+      Resolution: No attention required, forced by default filters
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+
+    Modified object:
+      RPM name:   rpm-libs
+      Resolution: No attention required, forced by default filters
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+
+    Modified object:
+      RPM name:   jack-audio-connection-kit
+      Resolution: No attention required, forced by default filters
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+
+    Modified object:
+      Path to modified file:      /etc/systemd/system/multi-user.target.wants/cdr-extd@cdr-extraction-1.service
+      RPM owner of modified file: unknown, not important
+      Resolution:                 No attention required, forced by default filters
+    Affected servers:
+      Server name: web; Server IP: 127.0.0.2;
+
+    Modified object:
+      Path to modified file:      /home/porta-admin/_internal/subdirB/fileB
+      RPM owner of modified file: porta-admin
+      Resolution:                 No attention required, forced by default filters
+    Affected servers:
+      Server name: web; Server IP: 127.0.0.2;
+      Server name: sip; Server IP: 127.0.0.3;
+
+    Modified object:
+      RPM name:   storcli
+      Resolution: No attention required, forced by default filters
+    Affected servers:
+      Server name: web; Server IP: 127.0.0.2;
+
+    Modified object:
+      Path to modified file:      /etc/X11/xorg.conf.d/00-main.conf
+      RPM owner of modified file: unknown, not important
+      Resolution:                 No attention required, forced by default filters
+    Affected servers:
+      Server name: sip; Server IP: 127.0.0.3;
+
+    Modified object:
+      RPM name:   dconf
+      Resolution: No attention required, forced by default filters
+    Affected servers:
+      Server name: sip; Server IP: 127.0.0.3;
+
+  List end
+
+
+# PI summary analysis and details
+
+
+================================= ID #{Customer patches} metadata ==================================
+  Reason: Customer should reapply his patches if needed
+  List start
+
+    Bundle name:                        b2bua:patches_v1:basshaA
+    Bundle SHA sum:                     bunshaA
+    Contains unaccounted modifications: No, everything is clean
+
+      Patch subject:                           CUSTOMER CHANGES: B2BUA dummy subj C
+      Patch SHA sum:                           patshaD
+      Patch number in PI bundle:               4
+      Fixed-In release where patch is present: mr120-0
+      Support-Ticket where patch was applied:  UNKNOWN, critical
+      Devel-Issue where patch was created:     unknown, not important
+
+  List end
+
+=================================== ID #{Dirty bundles} metadata ===================================
+  Reason: Bundles contain unaccounted modifications
+  List start
+    Bundle name: porta-admin:master:basshaB; Bundle SHA sum: bunshaB; Contains unaccounted modifications: Yes, should be investigated;
+  List end
+
+========================== ID #{Patches without Support-Ticket} metadata ===========================
+  Reason: Unknown patch origin
+  List start
+
+    Bundle name:                        b2bua:patches_v1:basshaA
+    Bundle SHA sum:                     bunshaA
+    Contains unaccounted modifications: No, everything is clean
+
+      Patch subject:                           B2BUA dummy subj A
+      Patch SHA sum:                           patshaA
+      Patch number in PI bundle:               1
+      Fixed-In release where patch is present: UNKNOWN, critical
+      Support-Ticket where patch was applied:  UNKNOWN, critical
+      Devel-Issue where patch was created:     unknown, not important
+
+      Patch subject:                           CUSTOMER CHANGES: B2BUA dummy subj C
+      Patch SHA sum:                           patshaD
+      Patch number in PI bundle:               4
+      Fixed-In release where patch is present: mr120-0
+      Support-Ticket where patch was applied:  UNKNOWN, critical
+      Devel-Issue where patch was created:     unknown, not important
+
+  List end
+
+============================= ID #{Patches without Fixed-In} metadata ==============================
+  Reason: Patch will be reapplied every update
+  List start
+
+    Bundle name:                        b2bua:patches_v1:basshaA
+    Bundle SHA sum:                     bunshaA
+    Contains unaccounted modifications: No, everything is clean
+
+      Patch subject:                           B2BUA dummy subj A
+      Patch SHA sum:                           patshaA
+      Patch number in PI bundle:               1
+      Fixed-In release where patch is present: UNKNOWN, critical
+      Support-Ticket where patch was applied:  UNKNOWN, critical
+      Devel-Issue where patch was created:     unknown, not important
+
+      Patch subject:                           B2BUA dummy subj C
+      Patch SHA sum:                           patshaC
+      Patch number in PI bundle:               3
+      Fixed-In release where patch is present: UNKNOWN, critical
+      Support-Ticket where patch was applied:  PortaOne-BBBBB
+      Devel-Issue where patch was created:     unknown, not important
+
+  List end
+
+================================== ID #{Skipped PI mods} metadata ==================================
+  Reason: User request
+  List start
+
+    Modified object:
+      Path to modified file:      /home/porta-sip/sippy/subdirA/fileA
+      RPM owner of modified file: b2bua
+      File git status:            M
+      Resolution:                 No attention required at all
+    Affected PI bundle:
+      Bundle name:                        b2bua:patches_v1:basshaA
+      Bundle SHA sum:                     bunshaA
+      Contains unaccounted modifications: No, everything is clean
+    Affected PI patch:
+      Patch subject:                           B2BUA dummy subj B
+      Patch SHA sum:                           patshaB
+      Patch number in PI bundle:               2
+      Fixed-In release where patch is present: mr120-0
+      Support-Ticket where patch was applied:  PortaOne-AAAAA
+      Devel-Issue where patch was created:     SIP-AAAAA
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+      Server name: sip;  Server IP: 127.0.0.3;
+      Server name: web;  Server IP: 127.0.0.2;
+
+    Modified object:
+      Path to modified file:      /home/porta-sip/sippy/subdirA/fileB
+      RPM owner of modified file: b2bua
+      File git status:            M
+      Resolution:                 No attention required at all
+    Affected PI bundle:
+      Bundle name:                        b2bua:patches_v1:basshaA
+      Bundle SHA sum:                     bunshaA
+      Contains unaccounted modifications: No, everything is clean
+    Affected PI patch:
+      Patch subject:                           B2BUA dummy subj B
+      Patch SHA sum:                           patshaB
+      Patch number in PI bundle:               2
+      Fixed-In release where patch is present: mr120-0
+      Support-Ticket where patch was applied:  PortaOne-AAAAA
+      Devel-Issue where patch was created:     SIP-AAAAA
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+      Server name: sip;  Server IP: 127.0.0.3;
+      Server name: web;  Server IP: 127.0.0.2;
+
+    Modified object:
+      Path to modified file:      /home/porta-sip/sippy/subdirA/fileC
+      RPM owner of modified file: b2bua
+      File git status:            M
+      Resolution:                 No attention required at all
+    Affected PI bundle:
+      Bundle name:                        b2bua:patches_v1:basshaA
+      Bundle SHA sum:                     bunshaA
+      Contains unaccounted modifications: No, everything is clean
+    Affected PI patch:
+      Patch subject:                           B2BUA dummy subj B
+      Patch SHA sum:                           patshaB
+      Patch number in PI bundle:               2
+      Fixed-In release where patch is present: mr120-0
+      Support-Ticket where patch was applied:  PortaOne-AAAAA
+      Devel-Issue where patch was created:     SIP-AAAAA
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+      Server name: sip;  Server IP: 127.0.0.3;
+      Server name: web;  Server IP: 127.0.0.2;
+
+    Modified object:
+      Path to modified file:      /home/porta-sip/sippy/subdirB/fileA
+      RPM owner of modified file: b2bua
+      File git status:            M
+      Resolution:                 No attention required at all
+    Affected PI bundle:
+      Bundle name:                        b2bua:patches_v1:basshaA
+      Bundle SHA sum:                     bunshaA
+      Contains unaccounted modifications: No, everything is clean
+    Affected PI patch:
+      Patch subject:                           B2BUA dummy subj B
+      Patch SHA sum:                           patshaB
+      Patch number in PI bundle:               2
+      Fixed-In release where patch is present: mr120-0
+      Support-Ticket where patch was applied:  PortaOne-AAAAA
+      Devel-Issue where patch was created:     SIP-AAAAA
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+      Server name: sip;  Server IP: 127.0.0.3;
+      Server name: web;  Server IP: 127.0.0.2;
+
+    Modified object:
+      Path to modified file:      /home/porta-sip/sippy/subdirB/fileB
+      RPM owner of modified file: b2bua
+      File git status:            M
+      Resolution:                 No attention required at all
+    Affected PI bundle:
+      Bundle name:                        b2bua:patches_v1:basshaA
+      Bundle SHA sum:                     bunshaA
+      Contains unaccounted modifications: No, everything is clean
+    Affected PI patch:
+      Patch subject:                           B2BUA dummy subj B
+      Patch SHA sum:                           patshaB
+      Patch number in PI bundle:               2
+      Fixed-In release where patch is present: mr120-0
+      Support-Ticket where patch was applied:  PortaOne-AAAAA
+      Devel-Issue where patch was created:     SIP-AAAAA
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+      Server name: sip;  Server IP: 127.0.0.3;
+      Server name: web;  Server IP: 127.0.0.2;
+
+    Modified object:
+      Path to modified file:      /home/porta-sip/sippy/subdirB/subdirA/fileA
+      RPM owner of modified file: b2bua
+      File git status:            M
+      Resolution:                 No attention required at all
+    Affected PI bundle:
+      Bundle name:                        b2bua:patches_v1:basshaA
+      Bundle SHA sum:                     bunshaA
+      Contains unaccounted modifications: No, everything is clean
+    Affected PI patch:
+      Patch subject:                           B2BUA dummy subj B
+      Patch SHA sum:                           patshaB
+      Patch number in PI bundle:               2
+      Fixed-In release where patch is present: mr120-0
+      Support-Ticket where patch was applied:  PortaOne-AAAAA
+      Devel-Issue where patch was created:     SIP-AAAAA
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+      Server name: sip;  Server IP: 127.0.0.3;
+      Server name: web;  Server IP: 127.0.0.2;
+
+    Modified object:
+      Path to modified file:      /home/porta-admin/_internal/subdirA/fileA
+      RPM owner of modified file: porta-admin
+      File git status:            D
+      Resolution:                 No attention required, forced by default filters
+    Affected PI bundle:
+      Bundle name:                        porta-admin:master:basshaB
+      Bundle SHA sum:                     bunshaB
+      Contains unaccounted modifications: Yes, should be investigated
+    Affected PI patch:
+      Patch subject:                           PortaAdmin dummy subj A
+      Patch SHA sum:                           patshaA
+      Patch number in PI bundle:               1
+      Fixed-In release where patch is present: mr120-0
+      Support-Ticket where patch was applied:  PortaOne-CCCCC
+      Devel-Issue where patch was created:     unknown, not important
+    Affected servers:
+      Server name: conf; Server IP: 127.0.0.1;
+      Server name: sip;  Server IP: 127.0.0.3;
+      Server name: web;  Server IP: 127.0.0.2;
+
+  List end

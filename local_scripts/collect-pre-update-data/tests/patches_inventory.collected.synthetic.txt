@@ -1,0 +1,15 @@
+Bundle SHA	Bundle	Is package dirty?	Is bundle staged?	Patch SHA	Patch subject	Patch#	Change	File	CSUP-TT	Dev-TT	Fixed-In	conf sip web
+bunshaA	b2bua:patches_v1:basshaA	N	Y	patshaA	B2BUA dummy subj A	1	D	/home/porta-sip/sippy/test/subdirA/fileA	N/A	N/A	N/A	conf sip web
+bunshaA	b2bua:patches_v1:basshaA	N	Y	patshaA	B2BUA dummy subj A	1	D	/home/porta-sip/sippy/test/subdirA/fileB	N/A	N/A	N/A	conf sip web
+bunshaA	b2bua:patches_v1:basshaA	N	Y	patshaB	B2BUA dummy subj B	2	M	/home/porta-sip/sippy/subdirA/fileA	PortaOne-AAAAA	SIP-AAAAA	mr120-0	conf sip web
+bunshaA	b2bua:patches_v1:basshaA	N	Y	patshaB	B2BUA dummy subj B	2	M	/home/porta-sip/sippy/subdirA/fileB	PortaOne-AAAAA	SIP-AAAAA	mr120-0	conf sip web
+bunshaA	b2bua:patches_v1:basshaA	N	Y	patshaB	B2BUA dummy subj B	2	M	/home/porta-sip/sippy/subdirA/fileC	PortaOne-AAAAA	SIP-AAAAA	mr120-0	conf sip web
+bunshaA	b2bua:patches_v1:basshaA	N	Y	patshaB	B2BUA dummy subj B	2	M	/home/porta-sip/sippy/subdirB/fileA	PortaOne-AAAAA	SIP-AAAAA	mr120-0	conf sip web
+bunshaA	b2bua:patches_v1:basshaA	N	Y	patshaB	B2BUA dummy subj B	2	M	/home/porta-sip/sippy/subdirB/subdirA/fileA	PortaOne-AAAAA	SIP-AAAAA	mr120-0	conf sip web
+bunshaA	b2bua:patches_v1:basshaA	N	Y	patshaB	B2BUA dummy subj B	2	M	/home/porta-sip/sippy/subdirB/fileB	PortaOne-AAAAA	SIP-AAAAA	mr120-0	conf sip web
+bunshaA	b2bua:patches_v1:basshaA	N	Y	patshaC	B2BUA dummy subj C	3	A	/home/porta-sip/sippy/test/subdirA/fileA	PortaOne-BBBBB	N/A	N/A	conf sip web
+bunshaA	b2bua:patches_v1:basshaA	N	Y	patshaC	B2BUA dummy subj C	3	A	/home/porta-sip/sippy/test/subdirA/fileB	PortaOne-BBBBB	N/A	N/A	conf sip web
+bunshaA	b2bua:patches_v1:basshaA	N	Y	patshaD	CUSTOMER CHANGES: B2BUA dummy subj C	4	M	/home/porta-sip/sippy/subdirB/subdirA/fileA	N/A	N/A	mr120-0	conf sip web
+bunshaA	b2bua:patches_v1:basshaA	N	Y	patshaD	CUSTOMER CHANGES: B2BUA dummy subj C	4	M	/home/porta-sip/sippy/subdirB/subdirA/fileB	N/A	N/A	mr120-0	conf sip web
+bunshaB	porta-admin:master:basshaB	Y	N	patshaA	PortaAdmin dummy subj A	1	D	/home/porta-admin/_internal/subdirA/fileA	PortaOne-CCCCC	N/A	mr120-0	conf sip web
+bunshaB	porta-admin:master:basshaB	Y	N	patshaB	PortaAdmin dummy subj B	2	M	/home/porta-admin/subdirA/fileA	PortaOne-DDDDD	N/A	mr120-0	conf sip web

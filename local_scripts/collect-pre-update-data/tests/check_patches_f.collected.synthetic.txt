@@ -1,0 +1,183 @@
+
+--- conf 127.0.0.1 ---
+
+
+
+Modified /etc config files:
+  /etc/.passphrases
+  /etc/.updated
+  /etc/systemd/system/nscasender.service.d/CSUP-AAAAA/override.conf
+  /etc/systemd/system/multi-user.target.wants/logmaster-sipcluster@pb-Main.service
+
+
+Modified files:
+  porta-configurator
+      missing      /home/porta-configurator/.git/index
+      S.5..UGT.    /home/porta-configurator/subdirA/fileA
+      ..5..UGT.    /home/porta-configurator/subdirB/fileA
+      S.5....T.    /home/porta-configurator/subdirA/fileB
+  porta-configurator-data
+      S.5....T.    /home/porta-configurator/data/etc/options-dump/subdirA/fileA
+      ..5..UGT.    /home/porta-configurator/data/etc/options-dump/subdirA/fileB
+  porta-selfcare
+      Unsatisfied dependencies for porta-selfcare-777.7-7.19931210.7.el0.noarch:
+        /usr/bin/shred is needed by (installed) porta-selfcare-777.7-7.19931210.7.el0.noarch
+  b2bua
+      ..5..UGT.    /home/porta-sip/sippy/.git/index
+      missing      /home/porta-sip/sippy/test/subdirA/fileA
+      missing      /home/porta-sip/sippy/test/subdirA/fileB
+      S.5..UGT.    /home/porta-sip/sippy/subdirA/fileA
+      ..5..UGT.    /home/porta-sip/sippy/subdirA/fileB
+      S.5....T.    /home/porta-sip/sippy/subdirA/fileC
+      S.5..UGT.    /home/porta-sip/sippy/subdirB/fileA
+      ..5..UGT.    /home/porta-sip/sippy/subdirB/subdirA/fileA
+      S.5....T.    /home/porta-sip/sippy/subdirB/fileB
+      ..5..UGT.    /home/porta-sip/sippy/subdirB/subdirA/fileB
+  porta-admin
+      missing      /home/porta-admin/_internal/subdirA/fileA
+      ..5..UGT.    /home/porta-admin/subdirA/fileA
+
+
+Missing rpms: rpmA.
+
+Check installed rpms:
+[debug] FLOOOOOOOOOOOOOOD
+[debug] Knife party
+[debug] How to disappear completely
+[debug] Dependency: neovim-1337.x86_64
+[debug] Dependency: gentoo-sources-1337.noarch
+[info] rpms in custom-delete group: ['avahi-libs', 'cifs-utils', 'cracklib', 'dbus-libs', 'rpm-libs']
+[debug] Shouldn't be installed: jack-audio-connection-kit-0.0.1.x86_64
+[debug] Shouldn't be installed: NetworkManager-666.x86_64
+[debug] Shouldn't be installed: systemd-666.x86_64
+
+tt.local config files:
+    /home/porta-configurator/etc/tt/PortaSwitch/porta-monitor.crontab.tt
+
+All custom patched files are backed up to
+/porta_var/update/backup/fake.tbz archive.
+All diffs for custom patched files are backed up to
+/porta_var/update/backup/doesnt_exist.tbz archive.
+Self-execution log is backed up to
+/porta_var/update/backup/who_cares.log.tbz archive.
+
+--- web 127.0.0.2 ---
+
+
+
+Modified /etc config files:
+  /etc/.passphrases
+  /etc/.updated
+  /etc/porta-one/unknown-web.config
+  /etc/systemd/system/multi-user.target.wants/cdr-extd@cdr-extraction-1.service
+
+
+Modified files:
+  porta-configurator
+      missing      /home/porta-configurator/.git/index
+      S.5..UGT.    /home/porta-configurator/subdirA/fileA
+      ..5..UGT.    /home/porta-configurator/subdirB/fileA
+      S.5....T.    /home/porta-configurator/subdirA/fileB
+  porta-configurator-data
+      S.5....T.    /home/porta-configurator/data/etc/options-dump/subdirA/fileA
+      ..5..UGT.    /home/porta-configurator/data/etc/options-dump/subdirA/fileB
+  b2bua
+      ..5..UGT.    /home/porta-sip/sippy/.git/index
+      missing      /home/porta-sip/sippy/test/subdirA/fileA
+      missing      /home/porta-sip/sippy/test/subdirA/fileB
+      S.5..UGT.    /home/porta-sip/sippy/subdirA/fileA
+      ..5..UGT.    /home/porta-sip/sippy/subdirA/fileB
+      S.5....T.    /home/porta-sip/sippy/subdirA/fileC
+      S.5..UGT.    /home/porta-sip/sippy/subdirB/fileA
+      ..5..UGT.    /home/porta-sip/sippy/subdirB/subdirA/fileA
+      S.5....T.    /home/porta-sip/sippy/subdirB/fileB
+      ..5..UGT.    /home/porta-sip/sippy/subdirB/subdirA/fileB
+  porta-admin
+      missing      /home/porta-admin/_internal/subdirA/fileA
+      S.5..UGT.    /home/porta-admin/_internal/subdirB/fileB
+      ..5..UGT.    /home/porta-admin/subdirA/fileA
+
+
+Missing rpms: rpmA.
+
+Check installed rpms:
+[debug] How to patch KDE2 on FreeBSD?
+[debug] Human Behavior
+[debug] The Reverse Will
+[debug] Dependency: awesome-1337.x86_64
+[debug] Dependency: kitty-1337.noarch
+[debug] Shouldn't be installed: storcli-0.0.1.x86_64
+[debug] Shouldn't be installed: gnome-3.x86_64
+[debug] Shouldn't be installed: systemd-666.x86_64
+
+tt.local config files:
+    /home/porta-configurator/etc/tt/shared/exim.conf.tt.local
+
+Custom httpd conf file was found: /etc/httpd/conf.d/porta.httpd.0m0.conf
+All custom patched files are backed up to
+/porta_var/update/backup/fake.tbz archive.
+All diffs for custom patched files are backed up to
+/porta_var/update/backup/doesnt_exist.tbz archive.
+Self-execution log is backed up to
+/porta_var/update/backup/who_cares.log.tbz archive.
+
+--- sip 127.0.0.3 ---
+
+
+
+Modified /etc config files:
+  /etc/.passphrases
+  /etc/.updated
+  /etc/logrotate.d/unknown-sip.config
+  /etc/X11/xorg.conf.d/00-main.conf
+
+
+Modified files:
+  porta-configurator
+      Unsatisfied dependencies for porta-configurator-777.7-7.19941010.7.el0.noarch:
+        /usr/bin/fortune is needed by (installed) porta-configurator-777.7-7.19941010.7.el0.noarch
+      missing      /home/porta-configurator/.git/index
+      S.5..UGT.    /home/porta-configurator/subdirA/fileA
+      ..5..UGT.    /home/porta-configurator/subdirB/fileA
+      S.5....T.    /home/porta-configurator/subdirA/fileB
+  porta-configurator-data
+      S.5....T.    /home/porta-configurator/data/etc/options-dump/subdirA/fileA
+      ..5..UGT.    /home/porta-configurator/data/etc/options-dump/subdirA/fileB
+  b2bua
+      ..5..UGT.    /home/porta-sip/sippy/.git/index
+      missing      /home/porta-sip/sippy/test/subdirA/fileA
+      missing      /home/porta-sip/sippy/test/subdirA/fileB
+      S.5..UGT.    /home/porta-sip/sippy/subdirA/fileA
+      ..5..UGT.    /home/porta-sip/sippy/subdirA/fileB
+      S.5....T.    /home/porta-sip/sippy/subdirA/fileC
+      S.5..UGT.    /home/porta-sip/sippy/subdirB/fileA
+      ..5..UGT.    /home/porta-sip/sippy/subdirB/subdirA/fileA
+      S.5....T.    /home/porta-sip/sippy/subdirB/fileB
+      ..5..UGT.    /home/porta-sip/sippy/subdirB/subdirA/fileB
+      S.5..UGT.    /home/porta-sip/sippy/subdirC/subdirA/fileA
+  porta-admin
+      missing      /home/porta-admin/_internal/subdirA/fileA
+      S.5..UGT.    /home/porta-admin/_internal/subdirB/fileB
+      ..5..UGT.    /home/porta-admin/subdirA/fileA
+
+
+Missing rpms: rpmA, rpmB.
+
+Check installed rpms:
+[debug] Got really good images with cute dragons due to open Syslog port
+[debug] Heroes
+[debug] Terrible Lie
+[debug] Dependency: portage-1337.x86_64
+[debug] Dependency: eix-1337.noarch
+[debug] Shouldn't be installed: dconf-0.0.1.x86_64
+[debug] Shouldn't be installed: pulseaudio-666.x86_64
+[debug] Shouldn't be installed: systemd-666.x86_64
+
+tt.local config files:
+
+All custom patched files are backed up to
+/porta_var/update/backup/fake.tbz archive.
+All diffs for custom patched files are backed up to
+/porta_var/update/backup/doesnt_exist.tbz archive.
+Self-execution log is backed up to
+/porta_var/update/backup/who_cares.log.tbz archive.

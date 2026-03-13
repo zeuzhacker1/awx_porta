@@ -1,0 +1,27 @@
+---
+- name: Deploy, execute, and cleanup pre-update data
+  hosts: all
+  
+  tasks:
+    - name: Execute pre-update operations
+      block:
+        - name: Copy collect-pre-update-data directory to remote destination
+          ansible.builtin.copy:
+            src: ../local_scripts/collect-pre-update-data/
+            dest: /porta_var/tmp/collect-pre-update-data
+
+        - name: Execute cpud.py script
+          ansible.builtin.command:
+            cmd: /porta_var/tmp/collect-pre-update-data/cpud.py
+          register: script_output
+
+        - name: Display the script output (Optional)
+          ansible.builtin.debug:
+            var: script_output.stdout_lines
+
+      always:
+        - name: Remove directory from destination
+          ansible.builtin.file:
+            path: /porta_var/tmp/collect-pre-update-data
+            state: absent
+...

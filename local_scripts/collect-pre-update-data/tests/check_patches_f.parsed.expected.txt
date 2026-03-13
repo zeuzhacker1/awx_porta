@@ -1,0 +1,1107 @@
+[IndexNode(
+  cmods = []
+  next = (
+    [IndexNode(
+      cmods = []
+      next = (
+        [IndexNode(
+          cmods = (
+            [PCMod(
+              amod = ModifiedOSFilePC(is_ignored=True, is_warning=False, package=None, path='/etc/.passphrases', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+            ), PCMod(
+              amod = ModifiedOSFilePC(is_ignored=True, is_warning=False, package=None, path='/etc/.updated', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+            )]
+          )
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = (
+                        [PCMod(
+                          amod = ModifiedOSFilePC(is_ignored=True, is_warning=False, package=None, path='/etc/systemd/system/multi-user.target.wants/logmaster-sipcluster@pb-Main.service', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf')]
+                        )]
+                      )
+                      next = []
+                      token = 'multi-user.target.wants'
+                    )]
+                  )
+                  token = 'system'
+                )]
+              )
+              token = 'systemd'
+            )]
+          )
+          token = 'etc'
+        ), IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = (
+                    [PCMod(
+                      amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='porta-configurator', path='/home/porta-configurator/.git/index', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                      servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                    )]
+                  )
+                  next = []
+                  token = '.git'
+                ), IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = []
+                      next = (
+                        [IndexNode(
+                          cmods = []
+                          next = (
+                            [IndexNode(
+                              cmods = (
+                                [PCMod(
+                                  amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='porta-configurator-data', path='/home/porta-configurator/data/etc/options-dump/subdirA/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                                  servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                                ), PCMod(
+                                  amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='porta-configurator-data', path='/home/porta-configurator/data/etc/options-dump/subdirA/fileB', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                                  servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                                )]
+                              )
+                              next = []
+                              token = 'subdirA'
+                            )]
+                          )
+                          token = 'options-dump'
+                        )]
+                      )
+                      token = 'etc'
+                    )]
+                  )
+                  token = 'data'
+                )]
+              )
+              token = 'porta-configurator'
+            ), IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = (
+                        [PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/.git/index', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        )]
+                      )
+                      next = []
+                      token = '.git'
+                    ), IndexNode(
+                      cmods = []
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PCMod(
+                              amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/test/subdirA/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                            ), PCMod(
+                              amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/test/subdirA/fileB', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                            )]
+                          )
+                          next = []
+                          token = 'subdirA'
+                        )]
+                      )
+                      token = 'test'
+                    )]
+                  )
+                  token = 'sippy'
+                )]
+              )
+              token = 'porta-sip'
+            ), IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = (
+                        [PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='porta-admin', path='/home/porta-admin/_internal/subdirA/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        )]
+                      )
+                      next = []
+                      token = 'subdirA'
+                    )]
+                  )
+                  token = '_internal'
+                )]
+              )
+              token = 'porta-admin'
+            )]
+          )
+          token = 'home'
+        ), IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = (
+                [PCMod(
+                  amod = InstalledRPM(is_ignored=True, is_warning=False, name='avahi-libs', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                  servers = [Server(_is_known=False, ip='127.0.0.1', name='conf')]
+                )]
+              )
+              next = []
+              token = 'l'
+            )]
+          )
+          token = 'a'
+        ), IndexNode(
+          cmods = (
+            [PCMod(
+              amod = InstalledRPM(is_ignored=True, is_warning=False, name='cracklib', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf')]
+            )]
+          )
+          next = (
+            [IndexNode(
+              cmods = (
+                [PCMod(
+                  amod = InstalledRPM(is_ignored=True, is_warning=False, name='cifs-utils', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                  servers = [Server(_is_known=False, ip='127.0.0.1', name='conf')]
+                )]
+              )
+              next = []
+              token = 'u'
+            )]
+          )
+          token = 'c'
+        ), IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = (
+                [PCMod(
+                  amod = InstalledRPM(is_ignored=True, is_warning=False, name='dbus-libs', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                  servers = [Server(_is_known=False, ip='127.0.0.1', name='conf')]
+                )]
+              )
+              next = []
+              token = 'l'
+            )]
+          )
+          token = 'd'
+        ), IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = (
+                [PCMod(
+                  amod = InstalledRPM(is_ignored=True, is_warning=False, name='rpm-libs', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                  servers = [Server(_is_known=False, ip='127.0.0.1', name='conf')]
+                )]
+              )
+              next = []
+              token = 'l'
+            )]
+          )
+          token = 'r'
+        ), IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = (
+                        [PCMod(
+                          amod = InstalledRPM(is_ignored=True, is_warning=False, name='jack-audio-connection-kit', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf')]
+                        )]
+                      )
+                      next = []
+                      token = 'k'
+                    )]
+                  )
+                  token = 'c'
+                )]
+              )
+              token = 'a'
+            )]
+          )
+          token = 'j'
+        )]
+      )
+      token = <Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>
+    ), IndexNode(
+      cmods = []
+      next = (
+        [IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = []
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PCMod(
+                              amod = ModifiedOSFilePC(is_ignored=False, is_warning=False, package=None, path='/etc/systemd/system/nscasender.service.d/CSUP-AAAAA/override.conf', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf')]
+                            )]
+                          )
+                          next = []
+                          token = 'CSUP-AAAAA'
+                        )]
+                      )
+                      token = 'nscasender.service.d'
+                    )]
+                  )
+                  token = 'system'
+                )]
+              )
+              token = 'systemd'
+            )]
+          )
+          token = 'etc'
+        ), IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = (
+                    [PCMod(
+                      amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='porta-configurator', path='/home/porta-configurator/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                      servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                    ), PCMod(
+                      amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='porta-configurator', path='/home/porta-configurator/subdirA/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                      servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                    )]
+                  )
+                  next = []
+                  token = 'subdirA'
+                ), IndexNode(
+                  cmods = (
+                    [PCMod(
+                      amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='porta-configurator', path='/home/porta-configurator/subdirB/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                      servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                    )]
+                  )
+                  next = []
+                  token = 'subdirB'
+                ), IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = []
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PCMod(
+                              amod = TTLocalFilePC(is_ignored=None, is_warning=None, package=None, path='/home/porta-configurator/etc/tt/PortaSwitch/porta-monitor.crontab.tt', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf')]
+                            )]
+                          )
+                          next = []
+                          token = 'PortaSwitch'
+                        )]
+                      )
+                      token = 'tt'
+                    )]
+                  )
+                  token = 'etc'
+                )]
+              )
+              token = 'porta-configurator'
+            ), IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = (
+                        [PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        ), PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirA/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        ), PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirA/fileC', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        )]
+                      )
+                      next = []
+                      token = 'subdirA'
+                    ), IndexNode(
+                      cmods = (
+                        [PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        ), PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        )]
+                      )
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PCMod(
+                              amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                            ), PCMod(
+                              amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/subdirA/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                            )]
+                          )
+                          next = []
+                          token = 'subdirA'
+                        )]
+                      )
+                      token = 'subdirB'
+                    )]
+                  )
+                  token = 'sippy'
+                )]
+              )
+              token = 'porta-sip'
+            ), IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = (
+                    [PCMod(
+                      amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='porta-admin', path='/home/porta-admin/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                      servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                    )]
+                  )
+                  next = []
+                  token = 'subdirA'
+                )]
+              )
+              token = 'porta-admin'
+            )]
+          )
+          token = 'home'
+        ), IndexNode(
+          cmods = (
+            [PCMod(
+              amod = InstalledRPM(is_ignored=False, is_warning=False, name='NetworkManager', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf')]
+            )]
+          )
+          next = []
+          token = 'N'
+        ), IndexNode(
+          cmods = (
+            [PCMod(
+              amod = InstalledRPM(is_ignored=False, is_warning=False, name='systemd', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+            )]
+          )
+          next = []
+          token = 's'
+        )]
+      )
+      token = <Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>
+    )]
+  )
+  token = Server(_is_known=False, ip='127.0.0.1', name='conf')
+), IndexNode(
+  cmods = []
+  next = (
+    [IndexNode(
+      cmods = []
+      next = (
+        [IndexNode(
+          cmods = (
+            [PCMod(
+              amod = ModifiedOSFilePC(is_ignored=True, is_warning=False, package=None, path='/etc/.passphrases', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+            ), PCMod(
+              amod = ModifiedOSFilePC(is_ignored=True, is_warning=False, package=None, path='/etc/.updated', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+            )]
+          )
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = (
+                        [PCMod(
+                          amod = ModifiedOSFilePC(is_ignored=True, is_warning=False, package=None, path='/etc/systemd/system/multi-user.target.wants/cdr-extd@cdr-extraction-1.service', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                          servers = [Server(_is_known=False, ip='127.0.0.2', name='web')]
+                        )]
+                      )
+                      next = []
+                      token = 'multi-user.target.wants'
+                    )]
+                  )
+                  token = 'system'
+                )]
+              )
+              token = 'systemd'
+            )]
+          )
+          token = 'etc'
+        ), IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = (
+                    [PCMod(
+                      amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='porta-configurator', path='/home/porta-configurator/.git/index', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                      servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                    )]
+                  )
+                  next = []
+                  token = '.git'
+                ), IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = []
+                      next = (
+                        [IndexNode(
+                          cmods = []
+                          next = (
+                            [IndexNode(
+                              cmods = (
+                                [PCMod(
+                                  amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='porta-configurator-data', path='/home/porta-configurator/data/etc/options-dump/subdirA/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                                  servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                                ), PCMod(
+                                  amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='porta-configurator-data', path='/home/porta-configurator/data/etc/options-dump/subdirA/fileB', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                                  servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                                )]
+                              )
+                              next = []
+                              token = 'subdirA'
+                            )]
+                          )
+                          token = 'options-dump'
+                        )]
+                      )
+                      token = 'etc'
+                    )]
+                  )
+                  token = 'data'
+                )]
+              )
+              token = 'porta-configurator'
+            ), IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = (
+                        [PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/.git/index', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        )]
+                      )
+                      next = []
+                      token = '.git'
+                    ), IndexNode(
+                      cmods = []
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PCMod(
+                              amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/test/subdirA/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                            ), PCMod(
+                              amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/test/subdirA/fileB', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                            )]
+                          )
+                          next = []
+                          token = 'subdirA'
+                        )]
+                      )
+                      token = 'test'
+                    )]
+                  )
+                  token = 'sippy'
+                )]
+              )
+              token = 'porta-sip'
+            ), IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = (
+                        [PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='porta-admin', path='/home/porta-admin/_internal/subdirA/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        )]
+                      )
+                      next = []
+                      token = 'subdirA'
+                    ), IndexNode(
+                      cmods = (
+                        [PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='porta-admin', path='/home/porta-admin/_internal/subdirB/fileB', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                          servers = [Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        )]
+                      )
+                      next = []
+                      token = 'subdirB'
+                    )]
+                  )
+                  token = '_internal'
+                )]
+              )
+              token = 'porta-admin'
+            )]
+          )
+          token = 'home'
+        ), IndexNode(
+          cmods = (
+            [PCMod(
+              amod = InstalledRPM(is_ignored=True, is_warning=False, name='storcli', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+              servers = [Server(_is_known=False, ip='127.0.0.2', name='web')]
+            )]
+          )
+          next = []
+          token = 's'
+        )]
+      )
+      token = <Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>
+    ), IndexNode(
+      cmods = []
+      next = (
+        [IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = (
+                [PCMod(
+                  amod = ModifiedOSFilePC(is_ignored=False, is_warning=False, package=None, path='/etc/porta-one/unknown-web.config', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                  servers = [Server(_is_known=False, ip='127.0.0.2', name='web')]
+                )]
+              )
+              next = []
+              token = 'porta-one'
+            ), IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = (
+                    [PCMod(
+                      amod = ModifiedOSFilePC(is_ignored=False, is_warning=False, package=None, path='/etc/httpd/conf.d/porta.httpd.0m0.conf', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                      servers = [Server(_is_known=False, ip='127.0.0.2', name='web')]
+                    )]
+                  )
+                  next = []
+                  token = 'conf.d'
+                )]
+              )
+              token = 'httpd'
+            )]
+          )
+          token = 'etc'
+        ), IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = (
+                    [PCMod(
+                      amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='porta-configurator', path='/home/porta-configurator/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                      servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                    ), PCMod(
+                      amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='porta-configurator', path='/home/porta-configurator/subdirA/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                      servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                    )]
+                  )
+                  next = []
+                  token = 'subdirA'
+                ), IndexNode(
+                  cmods = (
+                    [PCMod(
+                      amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='porta-configurator', path='/home/porta-configurator/subdirB/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                      servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                    )]
+                  )
+                  next = []
+                  token = 'subdirB'
+                ), IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = []
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PCMod(
+                              amod = TTLocalFilePC(is_ignored=None, is_warning=None, package=None, path='/home/porta-configurator/etc/tt/shared/exim.conf.tt', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              servers = [Server(_is_known=False, ip='127.0.0.2', name='web')]
+                            )]
+                          )
+                          next = []
+                          token = 'shared'
+                        )]
+                      )
+                      token = 'tt'
+                    )]
+                  )
+                  token = 'etc'
+                )]
+              )
+              token = 'porta-configurator'
+            ), IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = (
+                        [PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        ), PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirA/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        ), PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirA/fileC', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        )]
+                      )
+                      next = []
+                      token = 'subdirA'
+                    ), IndexNode(
+                      cmods = (
+                        [PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        ), PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        )]
+                      )
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PCMod(
+                              amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                            ), PCMod(
+                              amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/subdirA/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                            )]
+                          )
+                          next = []
+                          token = 'subdirA'
+                        )]
+                      )
+                      token = 'subdirB'
+                    )]
+                  )
+                  token = 'sippy'
+                )]
+              )
+              token = 'porta-sip'
+            ), IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = (
+                    [PCMod(
+                      amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='porta-admin', path='/home/porta-admin/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                      servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                    )]
+                  )
+                  next = []
+                  token = 'subdirA'
+                )]
+              )
+              token = 'porta-admin'
+            )]
+          )
+          token = 'home'
+        ), IndexNode(
+          cmods = (
+            [PCMod(
+              amod = InstalledRPM(is_ignored=False, is_warning=False, name='gnome', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+              servers = [Server(_is_known=False, ip='127.0.0.2', name='web')]
+            )]
+          )
+          next = []
+          token = 'g'
+        ), IndexNode(
+          cmods = (
+            [PCMod(
+              amod = InstalledRPM(is_ignored=False, is_warning=False, name='systemd', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+            )]
+          )
+          next = []
+          token = 's'
+        )]
+      )
+      token = <Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>
+    )]
+  )
+  token = Server(_is_known=False, ip='127.0.0.2', name='web')
+), IndexNode(
+  cmods = []
+  next = (
+    [IndexNode(
+      cmods = []
+      next = (
+        [IndexNode(
+          cmods = (
+            [PCMod(
+              amod = ModifiedOSFilePC(is_ignored=True, is_warning=False, package=None, path='/etc/.passphrases', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+            ), PCMod(
+              amod = ModifiedOSFilePC(is_ignored=True, is_warning=False, package=None, path='/etc/.updated', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+            )]
+          )
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = (
+                    [PCMod(
+                      amod = ModifiedOSFilePC(is_ignored=True, is_warning=False, package=None, path='/etc/X11/xorg.conf.d/00-main.conf', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                      servers = [Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                    )]
+                  )
+                  next = []
+                  token = 'xorg.conf.d'
+                )]
+              )
+              token = 'X11'
+            )]
+          )
+          token = 'etc'
+        ), IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = (
+                    [PCMod(
+                      amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='porta-configurator', path='/home/porta-configurator/.git/index', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                      servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                    )]
+                  )
+                  next = []
+                  token = '.git'
+                ), IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = []
+                      next = (
+                        [IndexNode(
+                          cmods = []
+                          next = (
+                            [IndexNode(
+                              cmods = (
+                                [PCMod(
+                                  amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='porta-configurator-data', path='/home/porta-configurator/data/etc/options-dump/subdirA/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                                  servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                                ), PCMod(
+                                  amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='porta-configurator-data', path='/home/porta-configurator/data/etc/options-dump/subdirA/fileB', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                                  servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                                )]
+                              )
+                              next = []
+                              token = 'subdirA'
+                            )]
+                          )
+                          token = 'options-dump'
+                        )]
+                      )
+                      token = 'etc'
+                    )]
+                  )
+                  token = 'data'
+                )]
+              )
+              token = 'porta-configurator'
+            ), IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = (
+                        [PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/.git/index', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        )]
+                      )
+                      next = []
+                      token = '.git'
+                    ), IndexNode(
+                      cmods = []
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PCMod(
+                              amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/test/subdirA/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                            ), PCMod(
+                              amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/test/subdirA/fileB', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                            )]
+                          )
+                          next = []
+                          token = 'subdirA'
+                        )]
+                      )
+                      token = 'test'
+                    )]
+                  )
+                  token = 'sippy'
+                )]
+              )
+              token = 'porta-sip'
+            ), IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = (
+                        [PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='porta-admin', path='/home/porta-admin/_internal/subdirA/fileA', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        )]
+                      )
+                      next = []
+                      token = 'subdirA'
+                    ), IndexNode(
+                      cmods = (
+                        [PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=True, is_warning=False, package='porta-admin', path='/home/porta-admin/_internal/subdirB/fileB', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+                          servers = [Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        )]
+                      )
+                      next = []
+                      token = 'subdirB'
+                    )]
+                  )
+                  token = '_internal'
+                )]
+              )
+              token = 'porta-admin'
+            )]
+          )
+          token = 'home'
+        ), IndexNode(
+          cmods = (
+            [PCMod(
+              amod = InstalledRPM(is_ignored=True, is_warning=False, name='dconf', resolution=<Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>)
+              servers = [Server(_is_known=False, ip='127.0.0.3', name='sip')]
+            )]
+          )
+          next = []
+          token = 'd'
+        )]
+      )
+      token = <Resolution.NO_ATTENTION_REQUIRED_UNKNOWN: 3>
+    ), IndexNode(
+      cmods = []
+      next = (
+        [IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = (
+                [PCMod(
+                  amod = ModifiedOSFilePC(is_ignored=False, is_warning=False, package=None, path='/etc/logrotate.d/unknown-sip.config', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                  servers = [Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                )]
+              )
+              next = []
+              token = 'logrotate.d'
+            )]
+          )
+          token = 'etc'
+        ), IndexNode(
+          cmods = []
+          next = (
+            [IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = (
+                    [PCMod(
+                      amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='porta-configurator', path='/home/porta-configurator/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                      servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                    ), PCMod(
+                      amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='porta-configurator', path='/home/porta-configurator/subdirA/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                      servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                    )]
+                  )
+                  next = []
+                  token = 'subdirA'
+                ), IndexNode(
+                  cmods = (
+                    [PCMod(
+                      amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='porta-configurator', path='/home/porta-configurator/subdirB/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                      servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                    )]
+                  )
+                  next = []
+                  token = 'subdirB'
+                )]
+              )
+              token = 'porta-configurator'
+            ), IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = []
+                  next = (
+                    [IndexNode(
+                      cmods = (
+                        [PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        ), PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirA/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        ), PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirA/fileC', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        )]
+                      )
+                      next = []
+                      token = 'subdirA'
+                    ), IndexNode(
+                      cmods = (
+                        [PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        ), PCMod(
+                          amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                          servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                        )]
+                      )
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PCMod(
+                              amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                            ), PCMod(
+                              amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirB/subdirA/fileB', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                            )]
+                          )
+                          next = []
+                          token = 'subdirA'
+                        )]
+                      )
+                      token = 'subdirB'
+                    ), IndexNode(
+                      cmods = []
+                      next = (
+                        [IndexNode(
+                          cmods = (
+                            [PCMod(
+                              amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='b2bua', path='/home/porta-sip/sippy/subdirC/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                              servers = [Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                            )]
+                          )
+                          next = []
+                          token = 'subdirA'
+                        )]
+                      )
+                      token = 'subdirC'
+                    )]
+                  )
+                  token = 'sippy'
+                )]
+              )
+              token = 'porta-sip'
+            ), IndexNode(
+              cmods = []
+              next = (
+                [IndexNode(
+                  cmods = (
+                    [PCMod(
+                      amod = ModifiedRepoFilePC(is_ignored=False, is_warning=False, package='porta-admin', path='/home/porta-admin/subdirA/fileA', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+                      servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+                    )]
+                  )
+                  next = []
+                  token = 'subdirA'
+                )]
+              )
+              token = 'porta-admin'
+            )]
+          )
+          token = 'home'
+        ), IndexNode(
+          cmods = (
+            [PCMod(
+              amod = InstalledRPM(is_ignored=False, is_warning=False, name='pulseaudio', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+              servers = [Server(_is_known=False, ip='127.0.0.3', name='sip')]
+            )]
+          )
+          next = []
+          token = 'p'
+        ), IndexNode(
+          cmods = (
+            [PCMod(
+              amod = InstalledRPM(is_ignored=False, is_warning=False, name='systemd', resolution=<Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>)
+              servers = [Server(_is_known=False, ip='127.0.0.1', name='conf'), Server(_is_known=False, ip='127.0.0.2', name='web'), Server(_is_known=False, ip='127.0.0.3', name='sip')]
+            )]
+          )
+          next = []
+          token = 's'
+        )]
+      )
+      token = <Resolution.MANUAL_ATTENTION_REQUIRED_UNKNOWN: 1>
+    )]
+  )
+  token = Server(_is_known=False, ip='127.0.0.3', name='sip')
+)]
