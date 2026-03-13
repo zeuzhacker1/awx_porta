@@ -10,6 +10,11 @@
             src: ../local_scripts/collect-pre-update-data/
             dest: /porta_var/tmp/collect-pre-update-data
 
+        - name: Make ONLY the cpud.py script executable
+          ansible.builtin.file:
+            path: /porta_var/tmp/collect-pre-update-data/cpud.py
+            mode: '0755'
+
         - name: Execute cpud.py script
           ansible.builtin.command:
             cmd: /porta_var/tmp/collect-pre-update-data/cpud.py --ticket PortaOne-1047
