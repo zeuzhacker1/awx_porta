@@ -18,6 +18,7 @@
         - name: Execute cpud.py script
           ansible.builtin.command:
             cmd: /porta_var/tmp/collect-pre-update-data/cpud.py --ticket PortaOne-1047
+          poll: 60
           register: script_output
 
         - name: Display the script output (Optional)
