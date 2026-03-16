@@ -259,7 +259,7 @@ class CollectPreUpdateData:
         """
         format = LOG_FORMAT_DEBUG if self._args.debug else LOG_FORMAT
         level = logging.DEBUG if self._args.debug else logging.INFO
-        logging.basicConfig(format=format, datefmt=DATE_FORMAT, level=level)
+        logging.basicConfig(format=format, datefmt=DATE_FORMAT, level=level, stream=sys.stdout)
 
         formatter = logging.Formatter(
             fmt=format, datefmt=DATE_FORMAT
